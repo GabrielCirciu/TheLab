@@ -1,0 +1,63 @@
+name: Build and Deploy Web to itch.io
+
+# A merge into main produces a push event on main, so this single trigger
+# covers both "pushed straight to main" and "PR merged into main".
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: 4.7.2
+  ITCH_TARGET: primordialmass/the-lab   # <user>/<game-slug> from your itch.io URL
+
+jobs:
+  export-web:
+    name: Export Web build
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.7.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Import project resources
+        run: godot --headless --verbose --editor --quit
+
+      - name: Export Web build
+        run: |
+          mkdir -v -p build/web
+          godot --headless --verbose --export-release "Web" "$(pwd)/build/web/index.html"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+          retention-days: 3
+
+  deploy-itch:
+    name: Push to itch.io
+    needs: export-web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+
+      - name: Install butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+
+      - name: Push build to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: ./butler push build/web "$ITCH_TARGET:web" --userversion "1.0.${{ github.run_number }}"

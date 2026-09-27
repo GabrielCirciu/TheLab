@@ -24,6 +24,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Move export templates into place
+        # GitHub Actions remaps HOME to /github/home for container jobs
+        # (unlike GitLab CI, where HOME stays /root), so the templates
+        # baked into the image at /root/... aren't found unless we move them.
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
       - name: Import project resources
         run: godot --headless --verbose --editor --quit
 

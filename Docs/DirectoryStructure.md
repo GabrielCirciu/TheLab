@@ -1,5 +1,5 @@
 # Game Directory Structure Example
-
+```
 GAME
 │
 ├── Entities

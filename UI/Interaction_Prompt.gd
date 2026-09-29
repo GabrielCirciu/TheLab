@@ -1,22 +1,26 @@
+class_name InteractionPrompt
 extends Label
 
-var key_text := "a"
+static var instance: InteractionPrompt
 
 func _ready() -> void:
+	instance = self
 	visible = false
-	key_text = _get_key_label("interact")
 
-func _on_prompt_changed(prompt: String) -> void:
-	visible = prompt != ""
-	self.text = "[%s] " % _get_key_label("interact") + prompt
+func show_prompt(promptText: String) -> void:
+	visible = true
+	text = "[%s] " % _get_key_label("interact") + promptText
 
-func _get_key_label(action: String) -> String:
+func hide_prompt() -> void:
+	visible = false
+
+func _get_key_label(inputKey: String) -> String:
 	# Checks what key is assigned currently to an action, in this case "interact"
 	# Godot has different keycode checks, so we check for both
-	for event in InputMap.action_get_events(action):
-		if event is InputEventKey:
-			if event.physical_keycode != 0:
-				return event.as_text_physical_keycode()
-			elif event.keycode != 0:
-				return event.as_text_keycode()
+	for _inputEvent in InputMap.action_get_events(inputKey):
+		if _inputEvent is InputEventKey:
+			if _inputEvent.physical_keycode != 0:
+				return _inputEvent.as_text_physical_keycode()
+			elif _inputEvent.keycode != 0:
+				return _inputEvent.as_text_keycode()
 	return "?"

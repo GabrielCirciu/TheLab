@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="1_fuboe"]
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_k3iav"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
-[ext_resource type="Script" uid="uid://bajfrpnwc47ss" path="res://Triggers/Trigger_AnimatedCube.gd" id="4_r0jl7"]
+[ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="3_fuboe"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6i7a3"]
 
@@ -42,6 +42,9 @@ size = Vector2(5, 5)
 
 [node name="Interactable_Test" type="Node3D" unique_id=388366385]
 
+[node name="PlayerStats" type="Node" parent="." unique_id=1557990101]
+script = ExtResource("3_fuboe")
+
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=2072690047]
 transform = Transform3D(0.88047737, -0.3275392, 0.34275016, 0, 0.72296715, 0.69088244, -0.4740882, -0.60830635, 0.6365562, 0, 7.4085116, 0)
 
@@ -68,9 +71,10 @@ offset_bottom = 23.0
 text = "ASD"
 script = ExtResource("1_fuboe")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673 node_paths=PackedStringArray("rayCast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 script = ExtResource("2_k3iav")
+rayCast = NodePath("Camera3D/RayCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]
 shape = SubResource("CylinderShape3D_6i7a3")
@@ -89,7 +93,7 @@ mesh = SubResource("BoxMesh_50ws8")
 [node name="Area3D" type="Area3D" parent="Intractable_Cube" unique_id=1719029297]
 collision_layer = 256
 script = ExtResource("3_bhlco")
-prompt_text = "CUBE IS TARGETED"
+kind = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Cube/Area3D" unique_id=425440768]
 shape = SubResource("BoxShape3D_c3pyi")
@@ -97,7 +101,6 @@ shape = SubResource("BoxShape3D_c3pyi")
 [node name="Intractable_Animated_Cube" type="MeshInstance3D" parent="." unique_id=1215388432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1707785, 1, -1)
 mesh = SubResource("BoxMesh_50ws8")
-script = ExtResource("4_r0jl7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intractable_Animated_Cube" unique_id=991375809]
 root_node = NodePath("../..")
@@ -106,6 +109,8 @@ libraries/ = SubResource("AnimationLibrary_0jygg")
 [node name="Area3D" type="Area3D" parent="Intractable_Animated_Cube" unique_id=456286181]
 collision_layer = 256
 script = ExtResource("3_bhlco")
+kind = 2
+promptText = "Open"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Animated_Cube/Area3D" unique_id=2116271998]
 shape = SubResource("BoxShape3D_c3pyi")
@@ -113,5 +118,3 @@ shape = SubResource("BoxShape3D_c3pyi")
 [node name="Platform" type="MeshInstance3D" parent="." unique_id=972585334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44723758)
 mesh = SubResource("PlaneMesh_50ws8")
-
-[connection signal="prompt_changed" from="Player" to="HUD/Control/Label_Interact" method="_on_prompt_changed"]

@@ -60,6 +60,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label_Interact" type="Label" parent="HUD/Control" unique_id=1022200183]
 layout_mode = 0
@@ -71,6 +72,7 @@ script = ExtResource("1_fuboe")
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045104027, 1, 0.12873018)
 script = ExtResource("2_k3iav")
+look_sensitivity = 0.005
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056598186, 0, 0)

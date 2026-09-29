@@ -22,7 +22,6 @@ func _check_for_interactable() -> void:
 
 	if target_of_raycast != current_interactable:
 		if is_instance_valid(current_interactable):
-			print("not interactable")
 			current_interactable.unfocus()
 		current_interactable = target_of_raycast
 		if current_interactable:

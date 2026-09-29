@@ -5,7 +5,7 @@ signal interacted(interactor: Node)
 signal focused
 signal unfocused
 
-@export var prompt_text := "Interact"
+@export var prompt_text := "<REPLACE ME WITH PROMPT POPUP TEXT>"
 
 func interact(interactor: Node) -> void:
 	interacted.emit(interactor)

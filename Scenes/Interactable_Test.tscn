@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_k3iav"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
 [ext_resource type="Script" uid="uid://bajfrpnwc47ss" path="res://Triggers/Trigger_AnimatedCube.gd" id="4_r0jl7"]
+[ext_resource type="Script" uid="uid://d8iscp8081ng" path="res://Triggers/Trigger_Chair.gd" id="5_k3iav"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6i7a3"]
 
@@ -37,6 +38,13 @@ _data = {
 &"RESET": SubResource("Animation_37k3e")
 }
 
+[sub_resource type="PrismMesh" id="PrismMesh_k3iav"]
+lightmap_size_hint = Vector2i(14, 21)
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3iav"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_50ws8"]
 size = Vector2(5, 5)
 
@@ -61,6 +69,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label_Interact" type="Label" parent="HUD/Control" unique_id=1022200183]
 layout_mode = 0
@@ -68,11 +77,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "ASD"
 script = ExtResource("1_fuboe")
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045104027, 1, 0.12873018)
 script = ExtResource("2_k3iav")
-look_sensitivity = 0.005
+look_sensitivity = 0.003
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056598186, 0, 0)
@@ -116,6 +126,19 @@ script = ExtResource("3_bhlco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Animated_Cube/Area3D" unique_id=2116271998]
 shape = SubResource("BoxShape3D_c3pyi")
+
+[node name="Chair" type="MeshInstance3D" parent="." unique_id=1449352136]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.019370675, 0.29686505, 1.4694935)
+mesh = SubResource("PrismMesh_k3iav")
+script = ExtResource("5_k3iav")
+
+[node name="Area3D" type="Area3D" parent="Chair" unique_id=370799672]
+collision_layer = 256
+script = ExtResource("3_bhlco")
+prompt_text = "Sit"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chair/Area3D" unique_id=1596601935]
+shape = SubResource("BoxShape3D_k3iav")
 
 [node name="Platform" type="MeshInstance3D" parent="." unique_id=972585334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44723758)

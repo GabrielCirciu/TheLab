@@ -12,6 +12,7 @@ const SPEED = 5.0
 
 var current_interactable: Interactable
 var last_prompt := ""
+var sitting = false
 
 func _check_for_interactable() -> void:
 	# Shoots a raycast, expected at every physics step, checking for collision
@@ -32,11 +33,7 @@ func _check_for_interactable() -> void:
 		last_prompt = prompt
 		prompt_changed.emit(prompt)
 		
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	ray.add_exception(self)
-
-func _physics_process(_delta: float) -> void:
+func _movement_input() -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -45,7 +42,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	ray.add_exception(self)
 
+func _physics_process(_delta: float) -> void:
+	_movement_input()
 	move_and_slide()
 	_check_for_interactable()
 
@@ -63,3 +66,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("interact") and is_instance_valid(current_interactable):
 		current_interactable.interact(self)
+
+func sit(pos: Vector3) -> void:
+	sitting = true
+	global_position = pos
+	

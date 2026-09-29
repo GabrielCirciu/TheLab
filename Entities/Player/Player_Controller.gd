@@ -8,6 +8,7 @@ var last_prompt := ""
 
 func _check_for_interactable() -> void:
 	# Shoots a raycast, expected at every physics step, checking for collision
+	# On collision, if it hits a valid Interactable object, it fires a prompt change signal
 	var target_of_raycast: Interactable = null
 	if ray.is_colliding():
 		target_of_raycast = ray.get_collider() as Interactable

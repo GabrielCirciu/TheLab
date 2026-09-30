@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bcrc4u2eshpyy" path="res://World/Interactables/ButtonPressable.tscn" id="2_85rgb"]
 [ext_resource type="PackedScene" uid="uid://p1s3d1dytn62" path="res://Entities/Player/Player.tscn" id="2_ii3j8"]
+[ext_resource type="Script" uid="uid://cwlp16ommdbfg" path="res://Systems/Game_Manager.gd" id="3_m6a7m"]
+[ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="4_41yj2"]
+[ext_resource type="Script" uid="uid://ct1dqcskn76yb" path="res://Resources/Game_Stats.gd" id="5_28i8f"]
+[ext_resource type="PackedScene" uid="uid://ul1fp38n6h7k" path="res://UI/UI_ComputerMonitor.tscn" id="6_41yj2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_85rgb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,3 +48,14 @@ button = 1
 [node name="ButtonPressable3" parent="." unique_id=1172026982 instance=ExtResource("2_85rgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44366074, 0.7113669, -1.5933458)
 button = 2
+
+[node name="GameManager" type="Node" parent="." unique_id=650585451]
+script = ExtResource("3_m6a7m")
+
+[node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("4_41yj2")]
+
+[node name="GameStats" type="Node" parent="." unique_id=1240814677]
+script = ExtResource("5_28i8f")
+
+[node name="GUIPanel3D" parent="." unique_id=695755933 instance=ExtResource("6_41yj2")]
+transform = Transform3D(0.15387903, 0, 0.12775461, 0, 0.2, 0, -0.12775461, 0, 0.15387903, -1.6452801, 0.7019174, -1.507746)

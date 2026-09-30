@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://p1s3d1dytn62"]
 
 [ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="2_gntrk"]
-[ext_resource type="Script" uid="uid://cwlp16ommdbfg" path="res://Systems/Game_Manager.gd" id="2_hj1c0"]
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_kyqiw"]
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="2_vweq0"]
-[ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="3_x44r4"]
-[ext_resource type="Script" uid="uid://ct1dqcskn76yb" path="res://Resources/Game_Stats.gd" id="4_761t5"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="5_hacra"]
 [ext_resource type="Script" uid="uid://cmgntfn3tncbv" path="res://Systems/HUD_Text_Display.gd" id="7_x44r4"]
 
@@ -35,14 +32,6 @@ size = Vector2(2, 2)
 [node name="Player" type="CharacterBody3D" unique_id=1250894719 node_paths=PackedStringArray("ray")]
 script = ExtResource("2_kyqiw")
 ray = NodePath("Head/Camera3D/RayCast3D")
-
-[node name="GameManager" type="Node" parent="." unique_id=345992223]
-script = ExtResource("2_hj1c0")
-
-[node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("3_x44r4")]
-
-[node name="GameStats" type="Node" parent="." unique_id=1212529113]
-script = ExtResource("4_761t5")
 
 [node name="PlayerStats" type="Node" parent="." unique_id=1157582664]
 script = ExtResource("5_hacra")
@@ -80,6 +69,7 @@ offset_top = -68.0
 offset_right = 220.0
 offset_bottom = -28.0
 mouse_filter = 2
+bbcode_enabled = true
 text = "HERE"
 horizontal_alignment = 1
 visible_characters_behavior = 2
@@ -101,6 +91,7 @@ collide_with_areas = true
 
 [node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1731418627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dewec")
 

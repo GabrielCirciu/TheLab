@@ -7,8 +7,13 @@ func _ready() -> void:
 	instance = self
 	visible = false
 
+func animate_labale() ->void:
+	visible = true
+	
+
+
 func show_correct_text() -> void:
-	text = "Correct!"
+	instance.bbcode_text= "[color=green]correct![/color]"
 	visible = true
 
 func show_wrong_text() -> void:
@@ -16,7 +21,7 @@ func show_wrong_text() -> void:
 	visible = true
 
 func show_gameover_text() -> void:
-	text = "Wrong!"
+	text = "Game Over!"
 	visible = true
 	
 func hide_prompt() -> void:

@@ -27,9 +27,10 @@ func _process(_delta: float) -> void:
 	else:
 		print("Wrong! (%d/%d)" % [GameStats.wrong_current, GameStats.wrong_max])
 		GameStats.correct = false
-		TextDisplay.instance.show_wrong_text()
 		GameStats.wrong_current += 1
-	
+		
+		TextDisplay.instance.show_wrong_text()
+		
 	if GameStats.correct_current + GameStats.wrong_current <= GameStats.emotions_total:
 		_pick_new_emotion()
 	elif GameStats.correct_current > GameStats.wrong_current:

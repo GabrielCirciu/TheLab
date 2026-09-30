@@ -1,34 +1,10 @@
 [gd_scene format=3 uid="uid://qw5n3tjrb6y3"]
 
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="1_fuboe"]
-[ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_k3iav"]
+[ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="1_r0jl7"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="3_fuboe"]
-[ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="4_bhlco"]
-[ext_resource type="Script" uid="uid://d8iscp8081ng" path="res://Triggers/Trigger_Chair.gd" id="5_k3iav"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_6i7a3"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhlco"]
-render_priority = 0
-shader = ExtResource("4_bhlco")
-shader_parameter/debug_mode = 0
-shader_parameter/debug_range = 50.0
-shader_parameter/enable_fog = true
-shader_parameter/fog_color = Color(0.6, 0.7, 0.8, 1)
-shader_parameter/noise_color = Color(0.4, 0.5, 0.6, 1)
-shader_parameter/fog_distance = 25.0
-shader_parameter/fog_fade_range = 15.0
-shader_parameter/enable_noise = true
-shader_parameter/noise_time_fac = 4.0
-shader_parameter/enable_color_limitation = true
-shader_parameter/color_levels = 8
-shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 1.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_r0jl7"]
-material = SubResource("ShaderMaterial_bhlco")
-size = Vector2(2, 2)
+[ext_resource type="PackedScene" uid="uid://p1s3d1dytn62" path="res://Entities/Player/Player.tscn" id="4_bhlco"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_50ws8"]
 
@@ -60,6 +36,10 @@ _data = {
 &"RESET": SubResource("Animation_37k3e")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_50ws8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3pyi"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_k3iav"]
 lightmap_size_hint = Vector2i(14, 21)
 size = Vector3(0.5, 0.5, 0.5)
@@ -71,6 +51,8 @@ size = Vector3(0.5, 0.5, 0.5)
 size = Vector2(5, 5)
 
 [node name="Interactable_Test" type="Node3D" unique_id=388366385]
+
+[node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("1_r0jl7")]
 
 [node name="PlayerStats" type="Node" parent="." unique_id=1557990101]
 script = ExtResource("3_fuboe")
@@ -104,31 +86,7 @@ text = "ASD"
 script = ExtResource("1_fuboe")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673 node_paths=PackedStringArray("ray")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045104027, 1, 0.12873018)
-script = ExtResource("2_k3iav")
-ray = NodePath("Head/Camera3D/RayCast3D")
-look_sensitivity = 0.003
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0056598186, 0, 0)
-shape = SubResource("CylinderShape3D_6i7a3")
-
-[node name="Head" type="Node3D" parent="Player" unique_id=1074710172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009134054, -1, -0.12873018)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=212197345]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0656929, 1, 0.12873018)
-
-[node name="RayCast3D" type="RayCast3D" parent="Player/Head/Camera3D" unique_id=1189075549]
-target_position = Vector3(0, 0, -1)
-collision_mask = 256
-collide_with_areas = true
-
-[node name="PSXMesh" type="MeshInstance3D" parent="Player/Head/Camera3D" unique_id=372491853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_r0jl7")
+[node name="Player" parent="." unique_id=1250894719 instance=ExtResource("4_bhlco")]
 
 [node name="Intractable_Cube" type="MeshInstance3D" parent="." unique_id=1345277923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.111243, 1, -1)
@@ -136,6 +94,7 @@ mesh = SubResource("BoxMesh_50ws8")
 
 [node name="Area3D" type="Area3D" parent="Intractable_Cube" unique_id=1719029297]
 collision_layer = 256
+collision_mask = 256
 script = ExtResource("3_bhlco")
 kind = 1
 
@@ -152,6 +111,7 @@ libraries/ = SubResource("AnimationLibrary_0jygg")
 
 [node name="Area3D" type="Area3D" parent="Intractable_Animated_Cube" unique_id=456286181 node_paths=PackedStringArray("anim")]
 collision_layer = 256
+collision_mask = 256
 script = ExtResource("3_bhlco")
 kind = 2
 anim = NodePath("../AnimationPlayer")
@@ -159,14 +119,23 @@ anim = NodePath("../AnimationPlayer")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Animated_Cube/Area3D" unique_id=2116271998]
 shape = SubResource("BoxShape3D_c3pyi")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=403500083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.308609, 0.98183453, 1.1323347)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1329327076]
+shape = SubResource("BoxShape3D_50ws8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=904605821]
+mesh = SubResource("BoxMesh_c3pyi")
+
 [node name="Chair" type="MeshInstance3D" parent="." unique_id=1449352136]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.019370675, 0.29686505, 1.4694935)
 mesh = SubResource("PrismMesh_k3iav")
-script = ExtResource("5_k3iav")
 
 [node name="Area3D" type="Area3D" parent="Chair" unique_id=370799672]
 collision_layer = 256
 script = ExtResource("3_bhlco")
+kind = 3
 prompt_text = "Sit"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair/Area3D" unique_id=1596601935]

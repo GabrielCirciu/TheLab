@@ -2,14 +2,12 @@ extends CharacterBody3D
 
 @export var ray: RayCast3D
 @export var look_sensitivity: float = 0.0005
+@export var player_speed: float = 5.0
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
-const SPEED = 5.0
-
 var current_interactable: Interactable
-var sitting = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -34,11 +32,11 @@ func _movement_input() -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * player_speed
+		velocity.z = direction.z * player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, player_speed)
+		velocity.z = move_toward(velocity.z, 0, player_speed)
 
 func _physics_process(_delta: float) -> void:
 	_movement_input()
@@ -61,8 +59,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		var _ray_cast_target : Interactable = PlayerStats.current_interactable
 		if is_instance_valid(_ray_cast_target):
 			_ray_cast_target.interact(self)
-
-func sit(pos: Vector3) -> void:
-	sitting = true
-	global_position = pos
-	

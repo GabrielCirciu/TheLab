@@ -1,6 +1,6 @@
 extends Node
 
-var currentInteractable: Interactable = null
-var isSitting: bool = false
+var current_interactable: Interactable = null
+var is_sitting: bool = false
 
-@export var playerName: String = "John Science"
+@export var player_name: String = "John Science"

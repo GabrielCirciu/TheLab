@@ -6,13 +6,13 @@ signal interacted(interactor: Node)
 enum Kind { GENERIC, BUTTON, DOOR, CHAIR }
 
 @export var kind: Kind = Kind.GENERIC
-@export var promptText := "<NO PROMPT SET>"
+@export var prompt_text := "<NO PROMPT SET>"
 @export var anim: AnimationPlayer = null
 
-var isOpen := false # only used by Kind.DOOR
+var is_open := false # only used by Kind.DOOR
 
 func focus() -> void:
-	InteractionPrompt.instance.show_prompt(promptText)
+	InteractionPrompt.instance.show_prompt(prompt_text)
 
 func unfocus() -> void:
 	InteractionPrompt.instance.hide_prompt()
@@ -28,17 +28,17 @@ func interact(interactor: Node) -> void:
 			_sit_chair()
 		_:
 			pass
-	InteractionPrompt.instance.show_prompt(promptText)
+	InteractionPrompt.instance.show_prompt(prompt_text)
 
 func _press_button() -> void:
 	if anim:
 		anim.play("press")
 
 func _toggle_door() -> void:
-	isOpen = not isOpen
-	promptText = "Close" if isOpen else "Open"
+	is_open = not is_open
+	prompt_text = "Close" if is_open else "Open"
 	if anim:
-		anim.play("Cube_Bounce") if isOpen else anim.play_backwards("Cube_Bounce")
+		anim.play("Cube_Bounce") if is_open else anim.play_backwards("Cube_Bounce")
 
 func _sit_chair() -> void:
 	print("Sitting")

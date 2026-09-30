@@ -1,20 +1,16 @@
 extends Node
 class_name AudioManager
 
-@export var audioEvent:FmodEventEmitter3D
+@export var audio_event:FmodEventEmitter3D
 	
-func Oneshot(eventEmitter3D: FmodEventEmitter3D) -> void:
-	eventEmitter3D.play_one_shot()
-	pass
+func one_shot(event_emitter_3d: FmodEventEmitter3D) -> void:
+	event_emitter_3d.play_one_shot()
 
-func PlayLoop(eventEmitter3D: FmodEventEmitter3D) -> void:
-	eventEmitter3D.play()
-	pass
+func play_loop(event_emitter_3d: FmodEventEmitter3D) -> void:
+	event_emitter_3d.play()
 
-func Stop(eventEmitter3D: FmodEventEmitter3D) -> void:
-	eventEmitter3D.stop()
-	pass
+func stop(event_emitter_3d: FmodEventEmitter3D) -> void:
+	event_emitter_3d.stop()
 
-func ModifyParameter(eventEmitter3D: FmodEventEmitter3D, parameter: String, value: Variant) -> void:
-	eventEmitter3D.set_parameter(parameter, value)
-	pass
+func modify_parameter(event_emitter_3d: FmodEventEmitter3D, parameter: String, value: Variant) -> void:
+	event_emitter_3d.set_parameter(parameter, value)

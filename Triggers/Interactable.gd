@@ -38,7 +38,10 @@ func _toggle_door() -> void:
 	is_open = not is_open
 	prompt_text = "Close" if is_open else "Open"
 	if anim:
-		anim.play("Cube_Bounce") if is_open else anim.play_backwards("Cube_Bounce")
+		if is_open:
+			anim.play("Cube_Bounce")
+		else:
+			anim.play_backwards("Cube_Bounce")
 
 func _sit_chair() -> void:
-	print("Sitting")
+	PlayerStats.is_sitting = not PlayerStats.is_sitting

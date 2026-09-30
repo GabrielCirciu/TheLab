@@ -26,21 +26,27 @@ shader_parameter/dither_strength = 1.0
 material = SubResource("ShaderMaterial_bhlco")
 size = Vector2(2, 2)
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1250894719]
+[node name="Player" type="CharacterBody3D" unique_id=1250894719 node_paths=PackedStringArray("ray")]
 script = ExtResource("2_kyqiw")
+ray = NodePath("Head/Camera3D/RayCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1411222524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_qt5wh")
 
 [node name="Head" type="Node3D" parent="." unique_id=554348983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031223774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1583008010]
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1602418403]
 target_position = Vector3(0, 0, -2)
+collision_mask = 256
+collide_with_areas = true
 
 [node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1731418627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dewec")
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Head" unique_id=594045931]

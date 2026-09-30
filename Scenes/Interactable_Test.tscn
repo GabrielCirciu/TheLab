@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="1_fuboe"]
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_k3iav"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
-[ext_resource type="Script" uid="uid://bajfrpnwc47ss" path="res://Triggers/Trigger_AnimatedCube.gd" id="4_r0jl7"]
-[ext_resource type="Script" uid="uid://d8iscp8081ng" path="res://Triggers/Trigger_Chair.gd" id="5_k3iav"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="3_fuboe"]
+[ext_resource type="Script" uid="uid://d8iscp8081ng" path="res://Triggers/Trigger_Chair.gd" id="5_k3iav"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6i7a3"]
 
@@ -83,9 +82,10 @@ text = "ASD"
 script = ExtResource("1_fuboe")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673 node_paths=PackedStringArray("ray")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0045104027, 1, 0.12873018)
 script = ExtResource("2_k3iav")
+ray = NodePath("Head/Camera3D/RayCast3D")
 look_sensitivity = 0.003
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]

@@ -4,9 +4,31 @@
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_k3iav"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="3_fuboe"]
+[ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="4_bhlco"]
 [ext_resource type="Script" uid="uid://d8iscp8081ng" path="res://Triggers/Trigger_Chair.gd" id="5_k3iav"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6i7a3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhlco"]
+render_priority = 0
+shader = ExtResource("4_bhlco")
+shader_parameter/debug_mode = 0
+shader_parameter/debug_range = 50.0
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = Color(0.6, 0.7, 0.8, 1)
+shader_parameter/noise_color = Color(0.4, 0.5, 0.6, 1)
+shader_parameter/fog_distance = 25.0
+shader_parameter/fog_fade_range = 15.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 8
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_r0jl7"]
+material = SubResource("ShaderMaterial_bhlco")
+size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_50ws8"]
 
@@ -102,6 +124,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0656929, 1, 0.12873018)
 target_position = Vector3(0, 0, -1)
 collision_mask = 256
 collide_with_areas = true
+
+[node name="PSXMesh" type="MeshInstance3D" parent="Player/Head/Camera3D" unique_id=372491853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_r0jl7")
 
 [node name="Intractable_Cube" type="MeshInstance3D" parent="." unique_id=1345277923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.111243, 1, -1)

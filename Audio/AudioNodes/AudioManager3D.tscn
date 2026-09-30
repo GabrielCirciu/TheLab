@@ -7,7 +7,7 @@ script = ExtResource("1_wuqcl")
 audioEvent = NodePath("StartComputer")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1741193650]
-bank_paths = ["res://Audio/FMODBanks/Desktop/Master.strings.bank", "res://Audio/FMODBanks/Desktop/Master.bank", "res://Audio/FMODBanks/Desktop/SFX.bank"]
+bank_paths = ["res://Audio/FMODBanks/Desktop/Master.strings.bank", "res://Audio/FMODBanks/Desktop/Master.bank", "res://Audio/FMODBanks/Desktop/SFX.bank", "res://Audio/FMODBanks/Desktop/Music.bank", "res://Audio/FMODBanks/Desktop/Ambient.bank"]
 
 [node name="StartComputer" type="FmodEventEmitter3D" parent="." unique_id=1926856511]
 event_name = "event:/StartComputer"
@@ -44,5 +44,3 @@ event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
 [node name="Puking" type="FmodEventEmitter3D" parent="." unique_id=1729566665]
 event_name = "event:/StartComputer"
 event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
-
-[node name="FmodListener3D" type="FmodListener3D" parent="." unique_id=1256310892]

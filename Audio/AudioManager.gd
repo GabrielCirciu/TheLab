@@ -16,5 +16,5 @@ func Stop(eventEmitter3D: FmodEventEmitter3D) -> void:
 	pass
 
 func ModifyParameter(eventEmitter3D: FmodEventEmitter3D, parameter: String, value: Variant) -> void:
-	#ventEmitter3D.set_parameter(parameter, value)
+	eventEmitter3D.set_parameter(parameter, value)
 	pass

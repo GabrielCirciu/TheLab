@@ -110,6 +110,7 @@ collision_mask = 256
 script = ExtResource("3_bhlco")
 kind = 1
 prompt_text = "Press"
+button = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Area3D" unique_id=425440768]
 shape = SubResource("BoxShape3D_c3pyi")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bcrc4u2eshpyy"]
+
+[ext_resource type="Script" uid="uid://co826i3q6hmpb" path="res://Triggers/Trigger_Button.gd" id="1_0585e"]
+[ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="2_ecui1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iwp3b"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idh7j"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="ButtonPressable" type="Node3D" unique_id=613431815]
+script = ExtResource("1_0585e")
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=453834677]
+mesh = SubResource("BoxMesh_iwp3b")
+
+[node name="Area3D" type="Area3D" parent="Button" unique_id=919759360]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_ecui1")
+kind = 1
+prompt_text = "Press"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Area3D" unique_id=222171042]
+shape = SubResource("BoxShape3D_idh7j")

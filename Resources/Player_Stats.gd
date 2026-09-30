@@ -5,4 +5,4 @@ var current_chair: Interactable = null
 var is_sitting: bool = false
 
 # :)
-var player_name: String = "John Science"
+@export var player_name: String = "John Science"

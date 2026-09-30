@@ -6,9 +6,8 @@ signal interacted(interactor: Node)
 enum Kind { GENERIC, BUTTON, DOOR, CHAIR }
 
 @export var kind: Kind = Kind.GENERIC
-@export var promptText := "Interact"
-
-@onready var anim: AnimationPlayer = get_node_or_null("AnimationPlayer")
+@export var promptText := "<NO PROMPT SET>"
+@export var anim: AnimationPlayer = null
 
 var isOpen := false # only used by Kind.DOOR
 

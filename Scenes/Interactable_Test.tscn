@@ -106,11 +106,12 @@ mesh = SubResource("BoxMesh_50ws8")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_0jygg")
 
-[node name="Area3D" type="Area3D" parent="Intractable_Animated_Cube" unique_id=456286181]
+[node name="Area3D" type="Area3D" parent="Intractable_Animated_Cube" unique_id=456286181 node_paths=PackedStringArray("anim")]
 collision_layer = 256
 script = ExtResource("3_bhlco")
 kind = 2
 promptText = "Open"
+anim = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Animated_Cube/Area3D" unique_id=2116271998]
 shape = SubResource("BoxShape3D_c3pyi")

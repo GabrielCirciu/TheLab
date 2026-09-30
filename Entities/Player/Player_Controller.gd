@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 @export var ray: RayCast3D
@@ -27,6 +28,13 @@ func _check_for_interactable() -> void:
 		PlayerStats.current_interactable = _ray_target
 		if _ray_target:
 			_ray_target.focus()
+
+func teleport_to(pos: Vector3, yaw: float = NAN) -> void:
+	global_position = pos
+	velocity = Vector3.ZERO
+	if not is_nan(yaw): # Necessary fix otherwise standing up will fuck us up
+		head.global_rotation.y = yaw
+		camera.rotation.x = 0.0
 		
 func _movement_input() -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -40,8 +48,9 @@ func _movement_input() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_movement_input()
-	move_and_slide()
 	_check_for_interactable()
+	if !PlayerStats.is_sitting:
+		move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -50,7 +59,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 	
 	if Input.is_action_just_pressed("escape"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if PlayerStats.is_sitting:
+			PlayerStats.current_chair.stand(self)
+			get_viewport().set_input_as_handled()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if event is InputEventMouseButton and event.pressed:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

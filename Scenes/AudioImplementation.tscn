@@ -1,18 +1,9 @@
 [gd_scene format=3 uid="uid://bf5urtjli6yxp"]
 
-[ext_resource type="Script" uid="uid://bxxmnfryavcoq" path="res://Audio/AudioManager.gd" id="1_t3nmg"]
+[ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="1_t3nmg"]
 
 [node name="AudioImplementation" type="Node3D" unique_id=985290506]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="." unique_id=1737485428]
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=642095879]
-bank_paths = ["res://Audio/FMODBanks/Desktop/SFX.bank"]
-
-[node name="AudioManager" type="Node" parent="." unique_id=739295340 node_paths=PackedStringArray("_fmodEventEmitter")]
-script = ExtResource("1_t3nmg")
-_fmodEventEmitter = NodePath("FmodEventEmitter3D")
-
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="AudioManager" unique_id=681436148]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+[node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("1_t3nmg")]

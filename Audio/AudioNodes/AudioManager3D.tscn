@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d4yvwvd21kok"]
+
+[ext_resource type="Script" uid="uid://bxxmnfryavcoq" path="res://Audio/AudioManager.gd" id="1_wuqcl"]
+
+[node name="AudioManager" type="Node" unique_id=1869149764 node_paths=PackedStringArray("audioEvent")]
+script = ExtResource("1_wuqcl")
+audioEvent = NodePath("StartComputer")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1741193650]
+bank_paths = ["res://Audio/FMODBanks/Desktop/Master.strings.bank", "res://Audio/FMODBanks/Desktop/Master.bank", "res://Audio/FMODBanks/Desktop/SFX.bank"]
+
+[node name="StartComputer" type="FmodEventEmitter3D" parent="." unique_id=1926856511]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Ambient" type="FmodEventEmitter3D" parent="." unique_id=1133235859]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Steps" type="FmodEventEmitter3D" parent="." unique_id=2145527534]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Button" type="FmodEventEmitter3D" parent="." unique_id=472582199]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="WorkingComputer" type="FmodEventEmitter3D" parent="." unique_id=554596846]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Slide" type="FmodEventEmitter3D" parent="." unique_id=252706286]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="SadCry" type="FmodEventEmitter3D" parent="." unique_id=1372992067]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="HappyBaby" type="FmodEventEmitter3D" parent="." unique_id=1617238917]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Puking" type="FmodEventEmitter3D" parent="." unique_id=1729566665]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="FmodListener3D" type="FmodListener3D" parent="." unique_id=1256310892]

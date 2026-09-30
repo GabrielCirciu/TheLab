@@ -1,15 +1,41 @@
 [gd_scene format=3 uid="uid://4c1g7gennps0"]
 
 [ext_resource type="PackedScene" uid="uid://b7gqix31cv310" path="res://World/Environments/Lab/ENV_ Kras.fbx" id="1_iukft"]
+[ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="2_gl6un"]
 
 [sub_resource type="Environment" id="Environment_j4o88"]
 background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.26961476, 0.255073, 0.1823487, 1)
+ambient_light_energy = 0.13
+glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.4177673, 0.391743, 0.3082522, 1)
-fog_light_energy = 2.32
-fog_density = 0.0032
+fog_light_energy = 0.0
+fog_density = 0.001
 adjustment_enabled = true
 adjustment_contrast = 0.975
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhlco"]
+render_priority = 0
+shader = ExtResource("2_gl6un")
+shader_parameter/debug_mode = 0
+shader_parameter/debug_range = 50.0
+shader_parameter/enable_fog = false
+shader_parameter/fog_color = Color(0.8081357, 0.49642086, 0.10328529, 1)
+shader_parameter/noise_color = Color(0.61675495, 0.4631762, 5.7756904e-07, 1)
+shader_parameter/fog_distance = 25.0
+shader_parameter/fog_fade_range = 20.0000009025
+shader_parameter/enable_noise = false
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 6
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.5070000240825
+
+[sub_resource type="QuadMesh" id="QuadMesh_j5yw3"]
+material = SubResource("ShaderMaterial_bhlco")
+size = Vector2(2, 2)
 
 [node name="Game" type="Node3D" unique_id=2084647866]
 
@@ -17,8 +43,6 @@ adjustment_contrast = 0.975
 transform = Transform3D(0.81544703, 0, 0.5788318, -0.5676554, 0.19556129, 0.799702, -0.11319708, -0.9806915, 0.15946989, 0, 0, -3.4158838)
 light_energy = 0.0
 sky_mode = 1
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1599186924]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=76229315]
 transform = Transform3D(1, 0, 7.450581e-09, 2.9802322e-08, 1, 0, 0, 0, 1, -2.5214856, 0, -4)
@@ -30,13 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5063407, 0, -4.1261983)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15264904, 0, -3.5412939)
 
 [node name="ENV_ Kras" parent="." unique_id=1231910581 instance=ExtResource("1_iukft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4207296, 0, -7.482074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.420754, -8.6545944e-05, -7.4820547)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1552505073]
 environment = SubResource("Environment_j4o88")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1930810699]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.4654527, 1.6766783, -12.617929)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.4654527, 1.7558075, -12.617929)
 light_color = Color(0.7090577, 0.48303944, 0.21913856, 1)
 light_energy = 1.211
 light_volumetric_fog_energy = 1.632
@@ -46,10 +70,72 @@ shadow_normal_bias = 1.02
 shadow_opacity = 0.89
 shadow_blur = 0.0
 spot_range = 2.5303469
-spot_angle = 44.35
+spot_angle = 55.562355
 
-[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1154994130]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.1827726, -1.265945, -10.234439)
-light_color = Color(0.5988143, 0.53830713, 0.34411287, 1)
-light_energy = 3.165
-area_size = Vector2(8.374998, 7.143523)
+[node name="AreaLight3D" type="AreaLight3D" parent="SpotLight3D" unique_id=1173232412]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -1.1306858, -0.9125006)
+light_color = Color(0.70980394, 0.48235294, 0.21960784, 1)
+area_range = 1.585
+area_attenuation = 1.658
+area_size = Vector2(0.0011677742, 0.7760067)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=374156481]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6706985, 2.229407, -8.835491)
+light_color = Color(0.956471, 0.21654794, 0, 1)
+light_energy = 1.211
+light_volumetric_fog_energy = 1.632
+shadow_enabled = true
+shadow_bias = 0.885
+shadow_normal_bias = 1.02
+shadow_opacity = 0.89
+shadow_blur = 0.0
+spot_range = 4.9194117
+spot_angle = 76.05122
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1728329440]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.622169, 2.535698, -10.558385)
+light_color = Color(0.6730736, 0.49469543, 0.34862664, 1)
+light_energy = 0.474
+light_volumetric_fog_energy = 1.632
+shadow_enabled = true
+shadow_bias = 0.885
+shadow_normal_bias = 1.02
+shadow_opacity = 0.89
+shadow_blur = 0.0
+spot_range = 4.9194117
+spot_angle = 85.19753
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=251447603]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6662991, 2.177339, -11.847864)
+light_color = Color(0.6730736, 0.49469543, 0.34862664, 1)
+light_energy = 0.474
+light_volumetric_fog_energy = 1.632
+shadow_enabled = true
+shadow_bias = 0.885
+shadow_normal_bias = 1.02
+shadow_opacity = 0.89
+shadow_blur = 0.0
+spot_range = 2.5410094
+spot_angle = 87.47691
+
+[node name="Head" type="Node3D" parent="." unique_id=1046188839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031223774, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1692145883]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1873501889]
+target_position = Vector3(0, 0, -2)
+
+[node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1851816406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_j5yw3")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1378865276]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -5.865479, 1.4700335, -10.429785)
+light_color = Color(0.52248555, 0.68479013, 0.3408077, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+area_range = 0.241
+area_attenuation = 0.798
+area_size = Vector2(0.5474415, 0.26740098)

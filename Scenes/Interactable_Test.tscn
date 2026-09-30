@@ -71,10 +71,9 @@ offset_bottom = 23.0
 text = "ASD"
 script = ExtResource("1_fuboe")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673 node_paths=PackedStringArray("rayCast")]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1887854673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 script = ExtResource("2_k3iav")
-rayCast = NodePath("Camera3D/RayCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=800639631]
 shape = SubResource("CylinderShape3D_6i7a3")
@@ -110,7 +109,6 @@ libraries/ = SubResource("AnimationLibrary_0jygg")
 collision_layer = 256
 script = ExtResource("3_bhlco")
 kind = 2
-promptText = "Open"
 anim = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Intractable_Animated_Cube/Area3D" unique_id=2116271998]

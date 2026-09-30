@@ -8,6 +8,10 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://Audio/FMODBanks/Desktop"
+
 [application]
 
 config/name="The LaB"
@@ -18,11 +22,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerStats="*uid://dn02qfwgu1uur"
+FmodManager="*uid://cds10pm7hwn3p"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [input]
 

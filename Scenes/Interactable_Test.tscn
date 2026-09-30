@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://qw5n3tjrb6y3"]
 
+[ext_resource type="Script" uid="uid://cwlp16ommdbfg" path="res://Systems/Game_Manager.gd" id="1_bhlco"]
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="1_fuboe"]
 [ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="1_r0jl7"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="3_bhlco"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="3_fuboe"]
+[ext_resource type="Script" uid="uid://ct1dqcskn76yb" path="res://Resources/Game_Stats.gd" id="3_r0jl7"]
 [ext_resource type="PackedScene" uid="uid://p1s3d1dytn62" path="res://Entities/Player/Player.tscn" id="4_bhlco"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_50ws8"]
@@ -52,9 +54,13 @@ _data = {
 
 [node name="Interactable_Test" type="Node3D" unique_id=388366385]
 
+[node name="GameManager" type="Node" parent="." unique_id=1809988252]
+script = ExtResource("1_bhlco")
+
 [node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("1_r0jl7")]
 
 [node name="GameStats" type="Node" parent="." unique_id=877806292]
+script = ExtResource("3_r0jl7")
 
 [node name="PlayerStats" type="Node" parent="." unique_id=1557990101]
 script = ExtResource("3_fuboe")

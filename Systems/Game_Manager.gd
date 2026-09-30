@@ -19,9 +19,15 @@ func _process(_delta: float) -> void:
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
 		print("Correct!")
+		GameStats.correct = true
+		##TODO: add animation for text fadeout (and maybe fade in)
+		TextDisplay.instance.show_correct_text()
+		
 		GameStats.correct_current += 1
 	else:
 		print("Wrong! (%d/%d)" % [GameStats.wrong_current, GameStats.wrong_max])
+		GameStats.correct = false
+		TextDisplay.instance.show_wrong_text()
 		GameStats.wrong_current += 1
 	
 	if GameStats.correct_current + GameStats.wrong_current <= GameStats.emotions_total:
@@ -46,5 +52,6 @@ func _next_baby():
 
 func _game_over() -> void:
 	print("You lose!")
+	TextDisplay.instance.show_gameover_text()
 	GameStats.game_over = true
 	# Scary stuff can be set here

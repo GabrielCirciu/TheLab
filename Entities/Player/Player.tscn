@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d4yvwvd21kok" path="res://Audio/AudioNodes/AudioManager3D.tscn" id="3_x44r4"]
 [ext_resource type="Script" uid="uid://ct1dqcskn76yb" path="res://Resources/Game_Stats.gd" id="4_761t5"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="5_hacra"]
+[ext_resource type="Script" uid="uid://cmgntfn3tncbv" path="res://Systems/HUD_Text_Display.gd" id="7_x44r4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qt5wh"]
 
@@ -72,6 +73,18 @@ text = "ASD"
 script = ExtResource("2_vweq0")
 metadata/_edit_use_anchors_ = true
 
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Control" unique_id=782587163]
+layout_mode = 0
+offset_left = -185.0
+offset_top = -68.0
+offset_right = 220.0
+offset_bottom = -28.0
+mouse_filter = 2
+text = "HERE"
+horizontal_alignment = 1
+visible_characters_behavior = 2
+script = ExtResource("7_x44r4")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1411222524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_qt5wh")
@@ -88,7 +101,6 @@ collide_with_areas = true
 
 [node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1731418627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
-visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dewec")
 

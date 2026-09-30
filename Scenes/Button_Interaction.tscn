@@ -3,10 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://bcrc4u2eshpyy" path="res://World/Interactables/ButtonPressable.tscn" id="2_85rgb"]
 [ext_resource type="PackedScene" uid="uid://p1s3d1dytn62" path="res://Entities/Player/Player.tscn" id="2_ii3j8"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_85rgb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ii3j8"]
+sky_material = SubResource("ProceduralSkyMaterial_85rgb")
+
+[sub_resource type="Environment" id="Environment_xanyb"]
+background_mode = 2
+sky = SubResource("Sky_ii3j8")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_xanyb"]
 size = Vector2(5, 5)
 
 [node name="ButtonInteraction" type="Node3D" unique_id=904904322]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1034906820]
+environment = SubResource("Environment_xanyb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=833730039]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Platform" type="MeshInstance3D" parent="." unique_id=512277075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44723758)
@@ -21,8 +39,8 @@ button = 0
 
 [node name="ButtonPressable2" parent="." unique_id=613431815 instance=ExtResource("2_85rgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30062157, 0.7113669, -1.5933458)
-button = 0
+button = 1
 
 [node name="ButtonPressable3" parent="." unique_id=1172026982 instance=ExtResource("2_85rgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44366074, 0.7113669, -1.5933458)
-button = 1
+button = 2

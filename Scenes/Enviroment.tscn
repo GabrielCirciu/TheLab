@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://yomyius6rgy8" path="res://World/Props/Chairs/env_stool.tscn" id="8_a7i85"]
 [ext_resource type="PackedScene" uid="uid://xvx3yha5ujc" path="res://World/Props/Tables/env_table_surgical.tscn" id="9_k45rw"]
 [ext_resource type="PackedScene" uid="uid://bp0030kh5o7rt" path="res://World/Props/Locker/env_locker.tscn" id="11_l5ogt"]
+[ext_resource type="PackedScene" uid="uid://dbvq82xs7d6jo" path="res://World/Props/Buttons/Env_Button_Open_Close.fbx" id="12_vgklg"]
+[ext_resource type="PackedScene" uid="uid://bw8rwwy4vb3ck" path="res://World/Props/Buttons/env_button_emergancy.tscn" id="13_0i4t6"]
+[ext_resource type="PackedScene" uid="uid://b68fqtutgyrws" path="res://World/Props/Tables/env_table_no_sink.tscn" id="14_0i4t6"]
+[ext_resource type="PackedScene" uid="uid://xoplfxuvccwk" path="res://World/Props/Tables/env_table_sink.tscn" id="15_c84mv"]
 
 [sub_resource type="Environment" id="Environment_na5xc"]
 background_energy_multiplier = 0.0
@@ -114,13 +118,22 @@ area_attenuation = 0.798
 area_size = Vector2(4.938053, 2.009287)
 
 [node name="AreaLight3D3" type="AreaLight3D" parent="Lights" unique_id=432221732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.004634, 1.182594, -13.205834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.883476, 1.182594, -13.205834)
 light_color = Color(0.6745098, 0.49411765, 0.34901962, 1)
 light_energy = 0.2
 shadow_bias = 0.0
 area_range = 3.156
 area_attenuation = 1.061
 area_size = Vector2(4.0285277, 2.053)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Lights" unique_id=249215580]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.004634, 1.182594, -8.148558)
+light_color = Color(0.6745098, 0.49411765, 0.34901962, 1)
+light_energy = 0.2
+shadow_bias = 0.0
+area_range = 3.156
+area_attenuation = 1.061
+area_size = Vector2(3.6875706, 1.5239124)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=49990993]
 transform = Transform3D(0.81544703, 0, 0.5788318, -0.5676554, 0.19556129, 0.799702, -0.11319708, -0.9806915, 0.15946989, 0, 0, -3.4158838)
@@ -153,3 +166,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8317692, 0, -6.4454355)
 
 [node name="env_locker3" parent="." unique_id=276966922 instance=ExtResource("11_l5ogt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8317692, 0, -6.4454355)
+
+[node name="Env_Button_Open_Close" parent="." unique_id=1946767615 instance=ExtResource("12_vgklg")]
+transform = Transform3D(0.74218374, 0, -0.67019653, 0, 1, 0, 0.67019653, 0, 0.74218374, 7.6632915, 1.397426, -1.1211247)
+
+[node name="Env_Button_Open_Close2" parent="." unique_id=1062441731 instance=ExtResource("12_vgklg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.84919, 1.397426, 0.707509)
+
+[node name="Env_Button_Emergancy" parent="." unique_id=1192209680 instance=ExtResource("13_0i4t6")]
+transform = Transform3D(0.66611975, 0, -0.74584484, 0, 1, 0, 0.74584484, 0, 0.66611975, 6.7504954, 1.3924853, -2.0537047)
+
+[node name="Env_Table_NoSink" parent="." unique_id=401042046 instance=ExtResource("14_0i4t6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.6806741, 0.058715343, 0.3922211)
+
+[node name="Env_Table_Sink" parent="." unique_id=1923583669 instance=ExtResource("15_c84mv")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.7759504, 0.05871582, 0.39095306)

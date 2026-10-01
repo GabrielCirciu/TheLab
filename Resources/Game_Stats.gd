@@ -2,6 +2,8 @@ extends Node
 
 enum Emotion { HAPPY, SAD, ANGRY, NONE }
 var baby_state : Emotion = Emotion.NONE
+var baby_number : int = 0
+var baby_ID : String = ""
 
 enum Buttons { BUTTON1, BUTTON2, BUTTON3, NONE }
 var interacted_button : Buttons = Buttons.NONE

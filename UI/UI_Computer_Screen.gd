@@ -34,6 +34,7 @@ func _checkAnswer(ans: Answer):
 func _process(_delta: float) -> void:
 	var _correct_count : int = GameStats.correct_count
 	var _wrong_count : int = GameStats.wrong_count
+	baby_text.text = GameStats.baby_ID
 	
 	if _correct_count > _old_correct_count:
 		_old_correct_count = _correct_count

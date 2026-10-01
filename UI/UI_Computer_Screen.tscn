@@ -44,8 +44,10 @@ anchor_bottom = 1.0
 
 [node name="Display_Color" type="ColorRect" parent="SubViewport/GUI" unique_id=2050847450]
 layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 1001.0
+offset_left = 180.0
+offset_top = 100.0
+offset_right = 380.0
+offset_bottom = 300.0
 color = Color(0, 0.66749895, 1.347661e-06, 1)
 
 [node name="Display_Text" type="RichTextLabel" parent="SubViewport/GUI" unique_id=1411706259]
@@ -53,6 +55,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 translation_context = &"@onready var display_text = $SubViewport/GUI/Display_Text"
@@ -63,10 +69,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 100.0
-offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 translation_context = &"@onready var display_text = $SubViewport/GUI/Display_Text"

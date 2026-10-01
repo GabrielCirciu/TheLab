@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ct1dqcskn76yb" path="res://Resources/Game_Stats.gd" id="3_rajel"]
 [ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="4_vvhu1"]
 [ext_resource type="PackedScene" uid="uid://p1s3d1dytn62" path="res://Entities/Player/Player.tscn" id="5_lbihj"]
+[ext_resource type="PackedScene" uid="uid://5k40ofk222ak" path="res://UI/UI_Computer_Screen.tscn" id="5_tfod6"]
 [ext_resource type="Script" uid="uid://lvgbwtbmp326" path="res://Triggers/Interactable.gd" id="6_raj38"]
 [ext_resource type="PackedScene" uid="uid://yomyius6rgy8" path="res://World/Props/Chairs/env_stool.tscn" id="7_8e0uq"]
 [ext_resource type="Texture2D" uid="uid://dqcgh22nr18s0" path="res://World/Props/Electricals/ScrollBtnTexture.png" id="8_i0vto"]
@@ -1163,6 +1164,9 @@ script = ExtResource("3_rajel")
 [node name="PlayerStats" type="Node" parent="." unique_id=1329297231]
 script = ExtResource("4_vvhu1")
 
+[node name="ComputerScreen" parent="." unique_id=1520417735 instance=ExtResource("5_tfod6")]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.442057, 1.4517034, -2.92189)
+
 [node name="Player" parent="." unique_id=1250894719 instance=ExtResource("5_lbihj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
 
@@ -1466,7 +1470,7 @@ light_energy = 0.0
 sky_mode = 1
 
 [node name="Env_Room" parent="." unique_id=1783880084 instance=ExtResource("15_khs3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00043307245, 0, 0.0003426075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016718954, 0.000987649, -0.0052173138)
 
 [node name="Env_Table" parent="." unique_id=526195609 instance=ExtResource("16_0iyqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1068964, 0.034794867, -2.97155)

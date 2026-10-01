@@ -3,15 +3,22 @@ extends Node3D
 @onready var correct = $SubViewport/GUI/Correct
 @onready var incorrect = $SubViewport/GUI/Incorrect
 
+var _old_correct_count : int = 0
+var _old_wrong_count : int = 0
+
 func _ready() -> void:
 	correct.visible = false
 	incorrect.visible = false
 
 func _process(_delta: float) -> void:
-	if GameStats.correct:
+	var _correct_count : int = GameStats.correct_current
+	var _wrong_count : int = GameStats.wrong_current
+	if _correct_count > _old_correct_count:
 		correct.visible = true
 		incorrect.visible = false
-	else:
+		_old_correct_count = _correct_count
+	elif _wrong_count > _old_wrong_count:
 		incorrect.visible = true
 		correct.visible = false
+		_old_wrong_count = _wrong_count
 	

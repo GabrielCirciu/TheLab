@@ -16,21 +16,11 @@ var is_open := false # only used by doors
 @export var seat_point: Marker3D
 @export var exit_point: Marker3D 
 
-var button: GameStats.Buttons = GameStats.Buttons.NONE
+@export_group("Button")
+@export var button: GameStats.Buttons = GameStats.Buttons.NONE
 
 
 func focus() -> void:
-	if kind == Kind.BUTTON:
-		match button:
-			GameStats.Buttons.BUTTON1:
-				prompt_text = "Give Toy"
-			GameStats.Buttons.BUTTON2:
-				prompt_text = "Give Pacifier"	
-			GameStats.Buttons.BUTTON3:
-				prompt_text = "Give Food"
-			_:
-				pass	
-			
 	InteractionPrompt.instance.show_prompt(prompt_text)
 
 func unfocus() -> void:

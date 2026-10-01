@@ -18,17 +18,14 @@ func _process(_delta: float) -> void:
 	GameStats.interacted_button = GameStats.Buttons.NONE
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
-		print("Correct!")
-		GameStats.correct = true
-		##TODO: add animation for text fadeout (and maybe fade in)
-		TextDisplay.instance.show_correct_text()
-		
+		print("Correct!")	
 		GameStats.correct_current += 1
+		# TODO: add animation for text fadeout (and maybe fade in)
+		TextDisplay.instance.show_correct_text()
 	else:
 		print("Wrong! (%d/%d)" % [GameStats.wrong_current, GameStats.wrong_max])
-		GameStats.correct = false
 		GameStats.wrong_current += 1
-		
+		# TODO: add animation for text fadeout (and maybe fade in)
 		TextDisplay.instance.show_wrong_text()
 		
 	if GameStats.correct_current + GameStats.wrong_current <= GameStats.emotions_total:

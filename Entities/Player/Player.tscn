@@ -3,8 +3,7 @@
 [ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="2_gntrk"]
 [ext_resource type="Script" uid="uid://cue05ltltu7v3" path="res://Entities/Player/Player_Controller.gd" id="2_kyqiw"]
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="2_vweq0"]
-[ext_resource type="Script" uid="uid://dn02qfwgu1uur" path="res://Resources/Player_Stats.gd" id="5_hacra"]
-[ext_resource type="Script" uid="uid://cmgntfn3tncbv" path="res://Systems/HUD_Text_Display.gd" id="7_x44r4"]
+[ext_resource type="Script" uid="uid://cmgntfn3tncbv" path="res://UI/HUD/HUD_Text_Display.gd" id="7_x44r4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qt5wh"]
 
@@ -32,9 +31,6 @@ size = Vector2(2, 2)
 [node name="Player" type="CharacterBody3D" unique_id=1250894719 node_paths=PackedStringArray("ray")]
 script = ExtResource("2_kyqiw")
 ray = NodePath("Head/Camera3D/RayCast3D")
-
-[node name="PlayerStats" type="Node" parent="." unique_id=1157582664]
-script = ExtResource("5_hacra")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=953703995]
 

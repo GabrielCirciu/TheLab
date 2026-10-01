@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmc3gyncqkext"
-path="res://.godot/imported/Env_Computer.fbx-341d8a6f1e0f1c8e6f38378ae12c23e2.scn"
+uid="uid://bf2rnwobp3gsu"
+path="res://.godot/imported/env_screen.fbx-b1ee6c2b2a8de3e34992537cd3b5b927.scn"
 
 [deps]
 
-source_file="res://World/Props/Electricals/Env_Computer.fbx"
-dest_files=["res://.godot/imported/Env_Computer.fbx-341d8a6f1e0f1c8e6f38378ae12c23e2.scn"]
+source_file="res://World/Props/Electricals/Computer/env_screen.fbx"
+dest_files=["res://.godot/imported/env_screen.fbx-b1ee6c2b2a8de3e34992537cd3b5b927.scn"]
 
 [params]
 

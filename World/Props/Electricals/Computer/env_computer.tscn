@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cj50v71m7e4op"]
 
-[ext_resource type="PackedScene" uid="uid://dmc3gyncqkext" path="res://World/Props/Electricals/Env_Computer.fbx" id="1_drb2k"]
+[ext_resource type="PackedScene" uid="uid://dmc3gyncqkext" path="res://World/Props/Electricals/Computer/Env_Computer.fbx" id="1_drb2k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_drb2k"]
 size = Vector3(0.01932554, 0.026708243, 0.031176712)

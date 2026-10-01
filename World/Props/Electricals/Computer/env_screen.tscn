@@ -1,0 +1,196 @@
+[gd_scene format=4 uid="uid://d3gcvi4gahlb7"]
+
+[ext_resource type="PackedScene" uid="uid://bf2rnwobp3gsu" path="res://World/Props/Electricals/Computer/env_screen.fbx" id="1_hsbli"]
+[ext_resource type="Script" uid="uid://cju1nsvvo6rxb" path="res://World/Props/Electricals/Computer/env_screen.gd" id="2_meyn4"]
+[ext_resource type="Texture2D" uid="uid://c27xix4yla2p2" path="res://UI/Screen/Bg.jpg" id="3_72xl4"]
+[ext_resource type="Shader" uid="uid://cilu8q1ppqotc" path="res://World/Props/Electricals/Computer/env_screen.gdshader" id="4_72xl4"]
+[ext_resource type="FontFile" uid="uid://sdtsanxfgqys" path="res://UI/Fonts/Perfect DOS VGA 437.ttf" id="4_dbfr3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_72xl4"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbfr3"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_72xl4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xrps"]
+resource_name = "Screen"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rj0q2"]
+_surfaces = [{
+"aabb": AABB(-0.042111218, -0.0024565607, -0.14627671, 0.053475678, 0.24301314, 0.28834176),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AgALAAwADAAGAAIADQALAAIADQACAAAADAALAAkADQAJAAsABgAMAA4ABgAOAAcAAwANAAAADgAEAAcAAwAEAA8ADgAPAAQADwAQAAMAAwAQAA0ADgAKAA8AEAAPAAoADAAFAA4ACQAFAAwADgARAAoADgAFABEACgABABAAEAABAA0AAQAKABEABQAJAAgADQAIAAkACAARAAUADQABAAgAEQAIAAEA"),
+"lods": [0.01416001, PackedByteArray("AAAIAAkAAAAJAAIABgACAAkAAAABAAgAAwABAAAACQAFAAYABQAJAAgABgAFAAcACgAIAAEACgABAAMACAAKAAUABwAFAAoAAwAEAAoABwAKAAQA"), 0.046199404, PackedByteArray("AAABAAIAAwABAAAABAABAAMABQACAAEAAQAEAAUAAgAFAAYABwAFAAQABgAFAAcA")],
+"name": "Screen",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("IH43PIDrqLoAQNM3AEiNuoA3xDpAtqm9ADI6PED+ILuAeRE+QMo0PAC4/bhObBG+gDO3vCD5cT6QyRW+wBwMvbvXbz5whqU98B+8vHdUdj6AeRE+wKm5vMwmdD7AAQq7QFUWvAAos7kAwAa3ABxougAYDTnJrak9ULIKvXBWbT5YA669oHExPACkrTqumA0+QLi3vKZucj6umA0+YIA2PAAEqboAoNI3ACS6vJYidD6AAAq7QO2yvN4wbj4i1xG+QC4sPMDWazvqnA2+0HwsvfxrbT6Azge7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vv3lc"]
+resource_local_to_scene = true
+resource_name = "Cube_046"
+_surfaces = [{
+"aabb": AABB(-0.042111218, -0.0024565607, -0.14627671, 0.053475678, 0.24301314, 0.28834176),
+"attribute_data": PackedByteArray("J94BPzotaz+O22Q++kBnP99cfj/cNWw/EO6rPJokaj8CAAA/0Ny3PWyvSD+Awck9gJHRO2Dtxj3fXH4/UMyoPWyvSD+Awck931x+P9w1bD+O22Q++kBnP99cfj9QzKg9gJHRO2Dtxj0Q7qs8miRqP7LWAT9Y22c/gHZKP7h1aD+gfl0+YBTbPaB+XT5gFNs9stYBP1jbZz+Adko/uHVoPxILez/83Gg/Egt7P7DAwz2KBwA/8GrSPQAlCj242WY/AICgPFAV4T0k3gE/fitrPxILez/83Gg/ACUKPbjZZj8FAAA/sOq3PYoHAD/watI9AICgPFAV4T0SC3s/sMDDPQ=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("CQAUABUAFQALAAkAFQAUABMAEwAIABUACAATABIAEgAWAAgAFgASAAoACgARABYAEQAKABcAFwAYABEAGAAXAA0ADQAMABgAGQAOAA8AGQABAA4AGQAPABoAGwABABkAGQAaAAIAAwAbABkAGQACAAAAAwAZAAAAHAAdABAAHAAFAB0AHAAQAB4AHwAFABwAHAAeAAYABwAfABwAHAAGAAQABwAcAAQA"),
+"lods": [0.01416001, PackedByteArray("AAAOAA8AAAAPAAIAAAABAA4AAwABAAAABAAFABAABwAFAAQABAAQAAYAEQASAAoAEQAKAA0ADQAMABEAEgARAAgACAATABIAEwAIAAsACwAJABMA"), 0.046199404, PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACQAIAAsACgAMAAgADAAKAA0A")],
+"material": SubResource("StandardMaterial3D_7xrps"),
+"name": "Screen",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("IH43PIDrqLoAQNM3AEiNuoA3xDpAtqm9ADI6PED+ILuAeRE+QMo0PAC4/bhObBG+wKm5vMwmdD7AAQq7wBwMvbvXbz5whqU9gDO3vCD5cT6QyRW+8B+8vHdUdj6AeRE+wBwMvbvXbz5whqU9ADI6PED+ILuAeRE+AEiNuoA3xDpAtqm98B+8vHdUdj6AeRE+gDO3vCD5cT6QyRW+QMo0PAC4/bhObBG+QFUWvAAos7kAwAa3ABxougAYDTnJrak9ULIKvXBWbT5YA669ULIKvXBWbT5YA669QFUWvAAos7kAwAa3ABxougAYDTnJrak9oHExPACkrTqumA0+QLi3vKZucj6umA0+0HwsvfxrbT6Azge7QC4sPMDWazvqnA2+QO2yvN4wbj4i1xG+YIA2PAAEqboAoNI3oHExPACkrTqumA0+QC4sPMDWazvqnA2+ACS6vJYidD6AAAq70HwsvfxrbT6Azge7QO2yvN4wbj4i1xG+QLi3vKZucj6umA0+BGI2HQJ5kcCxYQ4bome0wQFjwB6ogAjBHGCiHM5+F76YTdbONHV6vQVQDs+XiObBPkyvz3d98cHBTr3NxIBrv1QdFHKvkCzB1w8ncP9//78rDoRiY2/SvtcPJ3D/f/+/1w8ncP9//7/XDydw/3//v1d5qAW4ep6/mWQgHV2O+76CTfDQemeauioOfGJab9K+CBAWcCKAAcBbHRVyuJAtwX0XQHGZiazAdxc/cZGJrMD2DxNwC4AAwN4OQGg+dk6/4g5baF92Ub+da4UTo3kWwAFjwB7AgdzAHGCiHN58Z77tVETWsHVevo9eBeDXdlu/Pkyvz4d7UMHBTr3NY4Gevw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rj0q2")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j73bs"]
+data = PackedVector3Array(0.011399999, -0.0025, 0.14209999, 0.010799999, 0.0013, 0.1383, -0.0224, 0.2368, 0.1383, -0.0224, 0.2368, 0.1383, -0.023, 0.24059999, 0.14209999, 0.011399999, -0.0025, 0.14209999, -0.0224, 0.2368, 0.1383, 0.010799999, 0.0013, 0.1383, -0.0009, 0.0001, 0.082899995, -0.0009, 0.0001, 0.082899995, -0.034199998, 0.2342, 0.0808, -0.0224, 0.2368, 0.1383, -0.034199998, 0.2342, 0.0808, -0.0009, 0.0001, 0.082899995, -0.0092, -0.00029999999, 0, -0.0092, -0.00029999999, 0, -0.042099997, 0.23189999, -0.0021, -0.034199998, 0.2342, 0.0808, -0.042099997, 0.23189999, -0.0021, -0.0092, -0.00029999999, 0, -0.0011, 0.0015, -0.082899995, -0.0011, 0.0015, -0.082899995, -0.0339, 0.23179999, -0.085, -0.042099997, 0.23189999, -0.0021, -0.0339, 0.23179999, -0.085, -0.0011, 0.0015, -0.082899995, 0.0105, 0.0036, -0.1383, 0.0105, 0.0036, -0.1383, -0.0218, 0.23259999, -0.1424, -0.0339, 0.23179999, -0.085, -0.0218, 0.23259999, -0.1424, 0.0105, 0.0036, -0.1383, 0.011, -0.0001, -0.14199999, 0.011, -0.0001, -0.14199999, -0.0224, 0.23629999, -0.1463, -0.0218, 0.23259999, -0.1424, 0.0111, -0.0013, 0, -0.0092, -0.00029999999, 0, -0.0009, 0.0001, 0.082899995, 0.0111, -0.0013, 0, -0.0011, 0.0015, -0.082899995, -0.0092, -0.00029999999, 0, 0.0111, -0.0013, 0, -0.0009, 0.0001, 0.082899995, 0.010799999, 0.0013, 0.1383, 0.0105, 0.0036, -0.1383, -0.0011, 0.0015, -0.082899995, 0.0111, -0.0013, 0, 0.0111, -0.0013, 0, 0.010799999, 0.0013, 0.1383, 0.011399999, -0.0025, 0.14209999, 0.011, -0.0001, -0.14199999, 0.0105, 0.0036, -0.1383, 0.0111, -0.0013, 0, 0.0111, -0.0013, 0, 0.011399999, -0.0025, 0.14209999, 0.0112, -0.0013, 0, 0.011, -0.0001, -0.14199999, 0.0111, -0.0013, 0, 0.0112, -0.0013, 0, -0.022699999, 0.2384, -0.0021, -0.042099997, 0.23189999, -0.0021, -0.0339, 0.23179999, -0.085, -0.022699999, 0.2384, -0.0021, -0.034199998, 0.2342, 0.0808, -0.042099997, 0.23189999, -0.0021, -0.022699999, 0.2384, -0.0021, -0.0339, 0.23179999, -0.085, -0.0218, 0.23259999, -0.1424, -0.0224, 0.2368, 0.1383, -0.034199998, 0.2342, 0.0808, -0.022699999, 0.2384, -0.0021, -0.022699999, 0.2384, -0.0021, -0.0218, 0.23259999, -0.1424, -0.0224, 0.23629999, -0.1463, -0.023, 0.24059999, 0.14209999, -0.0224, 0.2368, 0.1383, -0.022699999, 0.2384, -0.0021, -0.022699999, 0.2384, -0.0021, -0.0224, 0.23629999, -0.1463, -0.022699999, 0.2384, -0.0021, -0.023, 0.24059999, 0.14209999, -0.022699999, 0.2384, -0.0021, -0.022699999, 0.2384, -0.0021)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4o88"]
+shader = ExtResource("4_72xl4")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.34400001634
+shader_parameter/scanlines_width = 0.2000000095
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.435
+shader_parameter/roll_size = 9.550000453625
+shader_parameter/roll_variation = 2.13100009796262
+shader_parameter/distort_intensity = 0.0150000007125
+shader_parameter/noise_opacity = 0.442000020995
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.174000008265
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.165
+shader_parameter/vignette_opacity = 0.6010000285475
+
+[node name="env_screen" unique_id=1850738053 instance=ExtResource("1_hsbli")]
+script = ExtResource("2_meyn4")
+
+[node name="Computer_001" parent="." index="0" unique_id=766695767]
+material_override = SubResource("StandardMaterial3D_dbfr3")
+mesh = SubResource("ArrayMesh_vv3lc")
+
+[node name="Area3D" type="Area3D" parent="Computer_001" index="0" unique_id=1151972204]
+transform = Transform3D(0.99999994, 1.8464126e-15, 0, 1.8464128e-15, 0.99999994, 8.881784e-16, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer_001/Area3D" index="0" unique_id=1340983162]
+transform = Transform3D(0.99999994, 1.8464126e-15, 0, 1.8464128e-15, 0.99999994, 8.881784e-16, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_j73bs")
+
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=317716374]
+scaling_3d_mode = 5
+scaling_3d_scale = 0.5
+fsr_sharpness = 0.25
+
+[node name="Control" type="Control" parent="SubViewport" index="0" unique_id=1081790923]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="TextureRect" parent="SubViewport/Control" index="0" unique_id=91683163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_72xl4")
+
+[node name="TabContainer" type="TabContainer" parent="SubViewport/Control" index="1" unique_id=999070812]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Home" type="Control" parent="SubViewport/Control/TabContainer" index="1" unique_id=1390079030]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Conony Status" type="Control" parent="SubViewport/Control/TabContainer" index="2" unique_id=285665264]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label" type="Label" parent="SubViewport/Control/TabContainer/Conony Status" index="0" unique_id=924423653]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = 176.0
+offset_bottom = 42.0
+scale = Vector2(1.3265678, 1.4414505)
+theme_override_colors/font_color = Color(0, 0.6666667, 0, 1)
+theme_override_fonts/font = ExtResource("4_dbfr3")
+theme_override_font_sizes/font_size = 17
+text = "COLONY STATUS:"
+
+[node name="Label2" type="Label" parent="SubViewport/Control/TabContainer/Conony Status" index="1" unique_id=1729066213]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 61.0
+offset_right = 178.0
+offset_bottom = 289.0
+scale = Vector2(1.3265678, 1.4414505)
+theme_override_colors/font_color = Color(0, 0.6666667, 0, 1)
+theme_override_fonts/font = ExtResource("4_dbfr3")
+theme_override_font_sizes/font_size = 13
+text = "Hailey McGuire
+Casey Parra
+Elyse Williamson
+Camille Sims
+Jordan Barrett
+Jessie Arellano
+Keanu Fry
+Bianca Alvarado
+Elizabeth Shields
+Ray Clements
+"
+
+[node name="Wiki" type="Control" parent="SubViewport/Control/TabContainer" index="3" unique_id=924550663]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="TabContainer" type="TabContainer" parent="SubViewport/Control/TabContainer/Wiki" index="0" unique_id=1115024217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/Control" index="2" unique_id=863287365]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_j4o88")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

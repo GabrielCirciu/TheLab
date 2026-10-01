@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bxxmnfryavcoq" path="res://Audio/AudioManager.gd" id="1_wuqcl"]
 
-[node name="AudioManager" type="Node" unique_id=1869149764 node_paths=PackedStringArray("audioEvent")]
+[node name="AudioManager" type="Node" unique_id=1869149764 node_paths=PackedStringArray("audio_event")]
 script = ExtResource("1_wuqcl")
-audioEvent = NodePath("StartComputer")
+audio_event = NodePath("SadCry")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1741193650]
 bank_paths = ["res://Audio/FMODBanks/Desktop/Master.strings.bank", "res://Audio/FMODBanks/Desktop/Master.bank", "res://Audio/FMODBanks/Desktop/SFX.bank", "res://Audio/FMODBanks/Desktop/Music.bank", "res://Audio/FMODBanks/Desktop/Ambient.bank"]

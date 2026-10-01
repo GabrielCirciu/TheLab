@@ -9,12 +9,16 @@ enum Kind { GENERIC, BUTTON, DOOR, CHAIR }
 @export var kind: Kind = Kind.GENERIC
 @export var prompt_text := "<NO PROMPT SET>"
 @export var anim: AnimationPlayer = null
-
+	
 var is_open := false # only used by doors
 
 @export_group("Chair")
 @export var seat_point: Marker3D
 @export var exit_point: Marker3D 
+
+@export_group("Button")
+@export var button: GameStats.Buttons = GameStats.Buttons.NONE
+
 
 func focus() -> void:
 	InteractionPrompt.instance.show_prompt(prompt_text)
@@ -39,6 +43,7 @@ func interact(interactor: Node) -> void:
 	InteractionPrompt.instance.show_prompt(prompt_text)
 
 func _press_button() -> void:
+	GameStats.interacted_button = button
 	if anim:
 		anim.play("press")
 

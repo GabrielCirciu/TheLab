@@ -14,13 +14,21 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	ray.add_exception(self)
 
+func _find_interactable(node: Node) -> Interactable:
+	# Walks up from the hit collider until it finds the Interactable that owns it
+	while node:
+		if node is Interactable:
+			return node
+		node = node.get_parent()
+	return null
+
 func _check_for_interactable() -> void:
 	# Shoots a raycast, expected at every physics step, checking for collision
 	# On collision, if it hits a valid Interactable object, it sets target to focused
 	# and it saves what is being interacted with in the PlayerStats script
 	var _ray_target: Interactable = null
 	if ray.is_colliding():
-		_ray_target = ray.get_collider() as Interactable
+		_ray_target = _find_interactable(ray.get_collider() as Node)
 		
 	if _ray_target != PlayerStats.current_interactable:
 		if is_instance_valid(PlayerStats.current_interactable):

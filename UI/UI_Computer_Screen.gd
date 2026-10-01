@@ -58,5 +58,5 @@ func _process(_delta: float) -> void:
 		input = Answer.INCORRECT
 	
 	_checkAnswer(input)
-	_check_win_lose()
 	_check_for_next_baby()
+	_check_win_lose()

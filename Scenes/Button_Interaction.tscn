@@ -87,7 +87,6 @@ collision_mask = 256
 script = ExtResource("3_ukcq2")
 kind = 1
 prompt_text = "Give Pacifier"
-button = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonPressable2/Button/Area3D" unique_id=151908399]
 shape = SubResource("SphereShape3D_0585e")

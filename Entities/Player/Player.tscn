@@ -5,25 +5,26 @@
 [ext_resource type="Script" uid="uid://b6y5rgjk5ts8k" path="res://UI/Interaction_Prompt.gd" id="2_vweq0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qt5wh"]
+radius = 0.20166016
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bhlco"]
 render_priority = 0
 shader = ExtResource("2_gntrk")
 shader_parameter/debug_mode = 0
 shader_parameter/debug_range = 50.0
-shader_parameter/enable_fog = true
-shader_parameter/fog_color = Color(0.6, 0.7, 0.8, 1)
-shader_parameter/noise_color = Color(0.4, 0.5, 0.6, 1)
+shader_parameter/enable_fog = false
+shader_parameter/fog_color = Color(0.8081357, 0.49642086, 0.10328529, 1)
+shader_parameter/noise_color = Color(0.61675495, 0.4631762, 5.7756904e-07, 1)
 shader_parameter/fog_distance = 25.0
-shader_parameter/fog_fade_range = 15.0
-shader_parameter/enable_noise = true
+shader_parameter/fog_fade_range = 20.0000009025
+shader_parameter/enable_noise = false
 shader_parameter/noise_time_fac = 4.0
 shader_parameter/enable_color_limitation = true
-shader_parameter/color_levels = 8
+shader_parameter/color_levels = 6
 shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 1.0
+shader_parameter/dither_strength = 0.350000016625
 
-[sub_resource type="QuadMesh" id="QuadMesh_dewec"]
+[sub_resource type="QuadMesh" id="QuadMesh_vweq0"]
 material = SubResource("ShaderMaterial_bhlco")
 size = Vector2(2, 2)
 
@@ -67,14 +68,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1583008010]
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1602418403]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -1)
 collision_mask = 256
 collide_with_areas = true
 
-[node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1731418627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
-visible = false
+[node name="PSXMesh2" type="MeshInstance3D" parent="Head/Camera3D" unique_id=204571253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1526204, 0, -1.11496)
 extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_dewec")
+mesh = SubResource("QuadMesh_vweq0")
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Head" unique_id=594045931]

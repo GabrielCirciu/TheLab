@@ -18,19 +18,19 @@ func _process(_delta: float) -> void:
 	GameStats.interacted_button = GameStats.Buttons.NONE
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
-		print("Correct!")	
-		GameStats.correct_current += 1
+		print("Correct!")
+		GameStats.correct_count += 1
 		# TODO: add animation for text fadeout (and maybe fade in)
 		TextDisplay.instance.show_correct_text()
 	else:
-		print("Wrong! (%d/%d)" % [GameStats.wrong_current, GameStats.wrong_max])
-		GameStats.wrong_current += 1
+		print("Wrong!")
+		GameStats.wrong_count += 1
 		# TODO: add animation for text fadeout (and maybe fade in)
 		TextDisplay.instance.show_wrong_text()
 		
-	if GameStats.correct_current + GameStats.wrong_current <= GameStats.emotions_total:
+	if GameStats.correct_count + GameStats.wrong_count <= GameStats.answers_max:
 		_pick_new_emotion()
-	elif GameStats.correct_current > GameStats.wrong_current:
+	elif GameStats.correct_count > GameStats.wrong_count:
 		_next_baby()
 	else:
 		_game_over()
@@ -42,9 +42,10 @@ func _pick_new_emotion() -> void:
 	# Sound stuff would be set here
 
 func _next_baby():
-	GameStats.correct_current = 0
-	GameStats.wrong_current = 0
-	GameStats.emotions_total += 2
+	print("Next baby coming")
+	GameStats.correct_count = 0
+	GameStats.wrong_count = 0
+	GameStats.answers_max += 2
 	_pick_new_emotion()
 	# Potential game difficulty increase would be set here
 

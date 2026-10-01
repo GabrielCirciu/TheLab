@@ -11,8 +11,8 @@ func _ready() -> void:
 	incorrect.visible = false
 
 func _process(_delta: float) -> void:
-	var _correct_count : int = GameStats.correct_current
-	var _wrong_count : int = GameStats.wrong_current
+	var _correct_count : int = GameStats.correct_count
+	var _wrong_count : int = GameStats.wrong_count
 	if _correct_count > _old_correct_count:
 		correct.visible = true
 		incorrect.visible = false

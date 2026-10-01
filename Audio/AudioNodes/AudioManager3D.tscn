@@ -14,33 +14,33 @@ event_name = "event:/StartComputer"
 event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
 
 [node name="Ambient" type="FmodEventEmitter3D" parent="." unique_id=1133235859]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/Ambient"
+event_guid = "{18ac8d98-c22c-4b6c-807d-a0a7327f8b36}"
 
 [node name="Steps" type="FmodEventEmitter3D" parent="." unique_id=2145527534]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/Walking"
+event_guid = "{438ca093-f602-408e-b164-e277a7b9c0af}"
 
 [node name="Button" type="FmodEventEmitter3D" parent="." unique_id=472582199]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/Button"
+event_guid = "{8ca4aa05-f608-4df3-985e-2d8aaf712449}"
 
 [node name="WorkingComputer" type="FmodEventEmitter3D" parent="." unique_id=554596846]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/ComputerWorkingSound"
+event_guid = "{455a2e2f-f7f9-4b6d-80bc-2e2b1b6719f4}"
 
 [node name="Slide" type="FmodEventEmitter3D" parent="." unique_id=252706286]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/Slide"
+event_guid = "{f87b244d-b263-4937-b64c-4c6070044e69}"
 
 [node name="SadCry" type="FmodEventEmitter3D" parent="." unique_id=1372992067]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/BabyCrying"
+event_guid = "{7ced835a-c86c-4673-b9b2-df3fdf90351f}"
 
 [node name="HappyBaby" type="FmodEventEmitter3D" parent="." unique_id=1617238917]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+event_name = "event:/BabyLaughting"
+event_guid = "{4fc6670b-47bb-413c-8f60-c7b98cbfa8f4}"
 
-[node name="Puking" type="FmodEventEmitter3D" parent="." unique_id=1729566665]
-event_name = "event:/StartComputer"
-event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+[node name="BabySick" type="FmodEventEmitter3D" parent="." unique_id=1729566665]
+event_name = "event:/SickBaby"
+event_guid = "{720b23d7-3bd5-4fad-85df-2278638ab7af}"

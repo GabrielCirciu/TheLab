@@ -1276,12 +1276,13 @@ shape = SubResource("BoxShape3D_03mnb")
 [node name="Env_Stool" parent="Chair" unique_id=697425343 instance=ExtResource("7_8e0uq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058683753, -0.64646167, -0.0096457)
 
-[node name="Button_Toy" type="Node3D" parent="." unique_id=538063524 node_paths=PackedStringArray("area")]
+[node name="Button_Toy" type="Node3D" parent="." unique_id=538063524 node_paths=PackedStringArray("area", "sound_emitter")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4634804, 1.4173853, -3.1474643)
 script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Toy"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 0
 
 [node name="Area3D" type="Area3D" parent="Button_Toy" unique_id=1308932065]
@@ -1302,12 +1303,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Toy/scroll_btn_002/StaticBody3D" unique_id=934232928]
 shape = SubResource("SphereShape3D_vweq0")
 
-[node name="Button_Pacifier" type="Node3D" parent="." unique_id=1878537386 node_paths=PackedStringArray("area")]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Toy" unique_id=1981088063]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Button_Pacifier" type="Node3D" parent="." unique_id=1878537386 node_paths=PackedStringArray("area", "sound_emitter")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4566995, 1.4246124, -3.2347038)
 script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Pacifier"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 1
 
 [node name="Area3D" type="Area3D" parent="Button_Pacifier" unique_id=1689080769]
@@ -1328,12 +1334,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Pacifier/scroll_btn_001/StaticBody3D" unique_id=2110819684]
 shape = SubResource("BoxShape3D_mlaul")
 
-[node name="Button_Food" type="Node3D" parent="." unique_id=1854732470 node_paths=PackedStringArray("area")]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Pacifier" unique_id=539465493]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Button_Food" type="Node3D" parent="." unique_id=1854732470 node_paths=PackedStringArray("area", "sound_emitter")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46056032, 1.4157201, -3.3128471)
 script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Food"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 2
 
 [node name="Area3D" type="Area3D" parent="Button_Food" unique_id=459841387]
@@ -1354,12 +1365,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Food/scroll_btn/StaticBody3D" unique_id=1429646278]
 shape = SubResource("BoxShape3D_7iho1")
 
-[node name="Button_NewBaby" type="Node3D" parent="." unique_id=1192209680 node_paths=PackedStringArray("area")]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Food" unique_id=1761839399]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
+
+[node name="Button_NewBaby" type="Node3D" parent="." unique_id=1192209680 node_paths=PackedStringArray("area", "sound_emitter")]
 transform = Transform3D(0.66611975, 0, -0.74584484, 0, 1, 0, 0.74584484, 0, 0.66611975, 6.7504954, 1.3924853, -2.0537047)
 script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Get new baby"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 3
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Button_NewBaby" unique_id=1789262984]
@@ -1391,6 +1407,10 @@ collision_layer = 256
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_NewBaby/Area3D" unique_id=1371718355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00046920776, 0, 0.090186596)
 shape = SubResource("SphereShape3D_vvhu1")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_NewBaby" unique_id=20579044]
+event_name = "event:/StartComputer"
+event_guid = "{51fa1276-b424-472f-9576-399cbbc25281}"
 
 [node name="Environment" type="Node3D" parent="." unique_id=1868812859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124107, 1.0089138, -3.0813434)

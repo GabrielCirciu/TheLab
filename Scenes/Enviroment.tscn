@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://cni8jeu2b72ew"]
+
+[ext_resource type="Shader" uid="uid://dwu4gyk502p7t" path="res://addons/psx_camera/psx_camera_shader.gdshader" id="2_h0tn0"]
+[ext_resource type="PackedScene" uid="uid://bhcn0eyj5awrm" path="res://World/Props/Lamps/Ceiling Lamp/env_ceiling_lamp.tscn" id="2_opveo"]
+[ext_resource type="PackedScene" uid="uid://bp60ytwrm06wj" path="res://World/Props/Lamps/Ceiling Lamp/env_ceiling_red_lamp.tscn" id="3_3exyv"]
+[ext_resource type="PackedScene" uid="uid://l6wljvsc2bg1" path="res://World/Props/Machines/env_machine_surgical.tscn" id="4_mqqbq"]
+[ext_resource type="PackedScene" uid="uid://1h75cfa5b4jp" path="res://World/Props/Tables/env_table.tscn" id="5_3exyv"]
+[ext_resource type="PackedScene" uid="uid://n10ynemp2f4b" path="res://World/Environments/Room/env_room.tscn" id="5_l5ogt"]
+[ext_resource type="PackedScene" uid="uid://cj50v71m7e4op" path="res://World/Props/Electricals/env_computer.tscn" id="5_opveo"]
+[ext_resource type="PackedScene" uid="uid://dd4lliduo7nou" path="res://World/Props/Electricals/env_power_supply.tscn" id="7_n5s8v"]
+[ext_resource type="PackedScene" uid="uid://yomyius6rgy8" path="res://World/Props/Chairs/env_stool.tscn" id="8_a7i85"]
+[ext_resource type="PackedScene" uid="uid://xvx3yha5ujc" path="res://World/Props/Tables/env_table_surgical.tscn" id="9_k45rw"]
+[ext_resource type="PackedScene" uid="uid://bp0030kh5o7rt" path="res://World/Props/Locker/env_locker.tscn" id="11_l5ogt"]
+
+[sub_resource type="Environment" id="Environment_na5xc"]
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.26961476, 0.255073, 0.1823487, 1)
+ambient_light_energy = 0.18
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.4177673, 0.391743, 0.3082522, 1)
+fog_light_energy = 0.0
+fog_density = 0.001
+adjustment_enabled = true
+adjustment_contrast = 0.975
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhlco"]
+render_priority = 0
+shader = ExtResource("2_h0tn0")
+shader_parameter/debug_mode = 0
+shader_parameter/debug_range = 50.0
+shader_parameter/enable_fog = false
+shader_parameter/fog_color = Color(0.8081357, 0.49642086, 0.10328529, 1)
+shader_parameter/noise_color = Color(0.61675495, 0.4631762, 5.7756904e-07, 1)
+shader_parameter/fog_distance = 25.0
+shader_parameter/fog_fade_range = 20.0000009025
+shader_parameter/enable_noise = false
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 6
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.350000016625
+
+[sub_resource type="QuadMesh" id="QuadMesh_opveo"]
+material = SubResource("ShaderMaterial_bhlco")
+size = Vector2(2, 2)
+
+[node name="Enviroment" type="Node3D" unique_id=1402379142]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1270929269]
+environment = SubResource("Environment_na5xc")
+
+[node name="Head" type="Node3D" parent="." unique_id=800531847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031223774, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=2109481423]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=346079503]
+target_position = Vector3(0, 0, -2)
+
+[node name="PSXMesh" type="MeshInstance3D" parent="Head/Camera3D" unique_id=1713329921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763102, 0, -0.55748)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_opveo")
+
+[node name="Lights" type="Node3D" parent="." unique_id=911679089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5917645, 0, 7.336006)
+
+[node name="env_ceiling_lamp" parent="Lights" unique_id=216051645 instance=ExtResource("2_opveo")]
+transform = Transform3D(0.81544703, 7.3067206e-09, 0.57883173, 0.11319714, 0.9806915, -0.15946987, -0.56765544, 0.1955614, 0.79970205, -5.6584425, 2.6358595, -10.420589)
+
+[node name="env_ceiling_red_lamp" parent="Lights" unique_id=761593968 instance=ExtResource("3_3exyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41351986, 2.4583256, -8.739256)
+
+[node name="Env_Machine_Surgical" parent="Lights" unique_id=1288491871 instance=ExtResource("4_mqqbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7352805, 2.646977, -11.477769)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/Env_Machine_Surgical" unique_id=1355630536]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.2651062, -0.8911694, -0.90395737)
+light_color = Color(0.7090577, 0.48303944, 0.21913856, 1)
+light_energy = 1.211
+light_volumetric_fog_energy = 1.632
+shadow_enabled = true
+shadow_bias = 0.885
+shadow_normal_bias = 1.02
+shadow_opacity = 0.89
+shadow_blur = 0.0
+spot_range = 2.5303469
+spot_angle = 55.562355
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Lights/Env_Machine_Surgical/SpotLight3D" unique_id=209700544]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -1.1306858, -0.6263064)
+light_color = Color(0.70980394, 0.48235294, 0.21960784, 1)
+area_range = 1.255
+area_attenuation = 1.658
+area_size = Vector2(0.0011677742, 0.7760067)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Lights" unique_id=1946787408]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -6.0585465, 1.4684366, -10.218113)
+light_color = Color(0.52248555, 0.68479013, 0.3408077, 1)
+shadow_bias = 0.0
+area_range = 0.241
+area_attenuation = 0.798
+area_size = Vector2(0.5474415, 0.26740098)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Lights" unique_id=1298101120]
+transform = Transform3D(5.7620454e-08, 0, -1, 0, 1, 0, 1, 0, 5.7620454e-08, -0.11233282, 1.182594, -12.233671)
+light_color = Color(0.82562137, 0.5578935, 0.6184897, 1)
+light_energy = 0.895
+shadow_bias = 0.0
+area_range = 0.241
+area_attenuation = 0.798
+area_size = Vector2(4.938053, 2.009287)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Lights" unique_id=432221732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.004634, 1.182594, -13.205834)
+light_color = Color(0.6745098, 0.49411765, 0.34901962, 1)
+light_energy = 0.2
+shadow_bias = 0.0
+area_range = 3.156
+area_attenuation = 1.061
+area_size = Vector2(4.0285277, 2.053)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=49990993]
+transform = Transform3D(0.81544703, 0, 0.5788318, -0.5676554, 0.19556129, 0.799702, -0.11319708, -0.9806915, 0.15946989, 0, 0, -3.4158838)
+light_energy = 0.0
+sky_mode = 1
+
+[node name="Env_Room" parent="." unique_id=1783880084 instance=ExtResource("5_l5ogt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00043307245, 0, 0.0003426075)
+
+[node name="Env_Table" parent="." unique_id=526195609 instance=ExtResource("5_3exyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1068964, 0.034794867, -2.97155)
+
+[node name="Env_Computer" parent="." unique_id=282123531 instance=ExtResource("5_opveo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124107, 1.0089138, -3.0813434)
+
+[node name="Env_Power_Supply" parent="." unique_id=1147005002 instance=ExtResource("7_n5s8v")]
+transform = Transform3D(-0.8660254, 0, -0.49999997, 0, 1, 0, 0.49999997, 0, -0.8660254, 0.26422167, 1.1109736, -2.4612887)
+
+[node name="Env_Stool" parent="." unique_id=697425343 instance=ExtResource("8_a7i85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75855803, 0.022437535, -2.9201348)
+
+[node name="Env_Table_Surgical" parent="." unique_id=1613770615 instance=ExtResource("9_k45rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8456554, 0, -4.136529)
+
+[node name="env_locker" parent="." unique_id=1828827353 instance=ExtResource("11_l5ogt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8317692, 0, -6.4454355)
+
+[node name="env_locker2" parent="." unique_id=1582727982 instance=ExtResource("11_l5ogt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8317692, 0, -6.4454355)
+
+[node name="env_locker3" parent="." unique_id=276966922 instance=ExtResource("11_l5ogt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8317692, 0, -6.4454355)

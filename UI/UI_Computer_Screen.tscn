@@ -55,16 +55,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-translation_context = &"@onready var display_text = $SubViewport/GUI/Display_Text"
 text = "WELL DONE!"
 
-[node name="Baby_Text" type="RichTextLabel" parent="SubViewport/GUI" unique_id=2111272191]
+[node name="Incorrect_Color" type="ColorRect" parent="SubViewport/GUI" unique_id=739142534]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -560.0
+offset_right = 440.0
+offset_bottom = 10000.0
+grow_horizontal = 0
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Incorrect_Text" type="RichTextLabel" parent="SubViewport/GUI" unique_id=205413971]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -4,8 +4,8 @@
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1549828411]
 transform = Transform3D(0.81544703, 0, 0.5788318, -0.5676554, 0.19556129, 0.799702, -0.11319708, -0.9806915, 0.15946989, 0, 0, -3.4158838)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1599186924]
+light_energy = 0.0
+sky_mode = 1
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=76229315]
 transform = Transform3D(1, 0, 7.450581e-09, 2.9802322e-08, 1, 0, 0, 0, 1, -2.5214856, 0, -4)

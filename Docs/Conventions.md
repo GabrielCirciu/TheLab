@@ -56,18 +56,16 @@ We can discuss if certain suffixes are to be named something else (i.e. Diffuse 
 
 |  | Convention | Example |
 | --- | --- | --- |
-| Classes/Nodes/Types | PascalCase | PlayerController |
-| Functions/Methods | snake_case | calculate_damage() |
-| Public properties | PascalCase | CurrentHealth |
-| Private fields | _camelCase | _someCalculation |
-| Local variables | camelCase | currentHealth |
-| Paramateres | camelCase | damageAmount |
+| Classes/Nodes | PascalCase | PlayerController |
+| Functions | snake_case | calculate_damage() |
+| Variables (public) | snake_case | current_health |
+| Variables (private) | _snake_case | _some_calculation |
+| Parameters | snake_case | damage_amount |
 | Constants | UPPER_SNAKE_CASE | MAX_HEALTH |
-| Enums | PascalCase | AnimationState |
-| Enum values | PascalCase | Walking |
-| Interfaces | I + PascalCase | IDamageable |
-| Boolean | is/has/can/should + PascalCase | isGrounded |
-| Events/Signals | past tense PascalCase | HealthChanged |
+| Enum names | PascalCase | AnimationState |
+| Enum values | UPPER_SNAKE_CASE | WALKING |
+| Booleans | is_/has_/can_ + snake_case | is_grounded |
+| Signals | past tense snake_case | health_changed |
 
 ### Folder organization
 

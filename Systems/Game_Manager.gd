@@ -14,9 +14,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var pressed := GameStats.interacted_button
+	GameStats.interacted_button = GameStats.Buttons.NONE
 	if pressed == GameStats.Buttons.NONE or GameStats.game_over:
 		return
-	GameStats.interacted_button = GameStats.Buttons.NONE
+	
+	if GameStats.ready_for_next_baby:
+		if pressed == GameStats.Buttons.NEW_BABY: 
+			GameStats.ready_for_next_baby = false
+			_next_baby()
+		return
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
 		print("Correct!")
@@ -28,7 +34,7 @@ func _process(_delta: float) -> void:
 	if GameStats.correct_count + GameStats.wrong_count <= GameStats.answers_max:
 		_pick_new_emotion()
 	elif GameStats.correct_count > GameStats.wrong_count:
-		_next_baby()
+		GameStats.ready_for_next_baby = true
 	else:
 		_game_over()
 

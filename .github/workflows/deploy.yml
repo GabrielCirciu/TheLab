@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: deploy-web
+  cancel-in-progress: true
+
 env:
   GODOT_VERSION: 4.7.2
   ITCH_TARGET: primordialmass/the-lab  # <user>/<game>
@@ -24,21 +28,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Update
-        run: apt-get update && apt-get install -y libfontconfig1
+      - name: Install system libraries
+        run: apt-get update && apt-get install -y --no-install-recommends libfontconfig1
 
       - name: Move export templates into place
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 
+      # The FMOD *editor* plugin is what builds the bank explorer / performance
+      # docks, and the editor segfaults while loading docks. Exports don't need
+      # the plugin: the GDExtension loads from its .gdextension file instead.
+      # This only edits the CI checkout, never your repo.
+      - name: Disable FMOD editor plugin (CI only)
+        run: |
+          grep -n "enabled" project.godot || true
+          sed -i -E \
+            -e 's#"res://addons/fmod/plugin\.cfg"##g' \
+            -e 's#\(\s*,\s*#(#g' \
+            -e 's#,\s*,#,#g' \
+            -e 's#,\s*\)#)#g' \
+            project.godot
+          echo "--- after edit ---"
+          grep -n "enabled" project.godot || true
+
+      # The editor can segfault at the very end of the import, after all
+      # assets are already imported. Tolerate the exit code, but fail the job
+      # if the import cache was not actually produced.
       - name: Import project resources
-        run: godot --headless --import
+        run: |
+          godot --headless --import || echo "::warning::godot --import exited non-zero (exit $?)"
+          test -d .godot/imported && [ -n "$(ls -A .godot/imported)" ] \
+            || { echo "::error::Import produced no assets"; exit 1; }
 
       - name: Export Web build
         run: |
           mkdir -v -p build/web
-          godot --headless --export-release "Web" "$(pwd)/build/web/index.html"
+          godot --headless --export-release "Web" "$(pwd)/build/web/index.html" \
+            || echo "::warning::godot export exited non-zero (exit $?)"
+          test -f build/web/index.html \
+            || { echo "::error::Web export did not produce index.html"; exit 1; }
+          ls -la build/web
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v7
@@ -60,12 +90,12 @@ jobs:
 
       - name: Install butler
         run: |
-          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
-          unzip butler.zip
+          curl -fsSL -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip -q butler.zip
           chmod +x butler
           ./butler -V
 
       - name: Push build to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: ./butler push build/web "$ITCH_TARGET:web"
+        run: ./butler push build/web "$ITCH_TARGET:web" --userversion "$GITHUB_SHA"

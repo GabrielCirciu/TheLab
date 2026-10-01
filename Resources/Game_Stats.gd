@@ -12,3 +12,4 @@ var wrong_count: int = 0
 var correct_count: int = 0
 var answers_max: int = 3
 var game_over: bool = false
+var ready_for_next_baby: bool = false

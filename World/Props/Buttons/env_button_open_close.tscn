@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c01bcxaav6an6"]
+
+[ext_resource type="PackedScene" uid="uid://dbvq82xs7d6jo" path="res://World/Props/Buttons/Env_Button_Open_Close.fbx" id="1_ue6b8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_siegd"]
+size = Vector3(0.0964505, 0.0964505, 0.03312267)
+
+[node name="Env_Button_Open_Close" unique_id=1946767615 instance=ExtResource("1_ue6b8")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button/Button_001" parent_id_path=PackedInt32Array(357548843) index="0" unique_id=494782293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.016561167)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Button_001/StaticBody3D" index="0" unique_id=941648489]
+shape = SubResource("BoxShape3D_siegd")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Button/Button_001" parent_id_path=PackedInt32Array(357548843) index="1" unique_id=1323478936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.10648501)
+light_color = Color(0.74134624, 1, 0.30062643, 1)
+light_energy = 0.103
+area_range = 0.113
+area_size = Vector2(0.13714197, 0.11275661)

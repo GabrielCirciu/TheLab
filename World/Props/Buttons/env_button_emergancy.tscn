@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bw8rwwy4vb3ck"]
+
+[ext_resource type="PackedScene" uid="uid://2memq0mg0da2" path="res://World/Props/Buttons/Env_Button_Emergancy.fbx" id="1_ray0e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ktofb"]
+size = Vector3(0.14371827, 0.06771434, 0.14153484)
+
+[node name="Env_Button_Emergancy" unique_id=1192209680 instance=ExtResource("1_ray0e")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_001/Cylinder_002" parent_id_path=PackedInt32Array(938202171) index="0" unique_id=2011863143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.685755e-08, 0.033856865, -0.002200216)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_001/Cylinder_002/StaticBody3D" index="0" unique_id=917291357]
+shape = SubResource("BoxShape3D_ktofb")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Cylinder_001/Cylinder_002" parent_id_path=PackedInt32Array(938202171) index="1" unique_id=1803796173]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.10650459, -0.0025155973)
+light_color = Color(0.7411765, 0, 0, 1)
+light_energy = 0.103
+area_range = 0.113
+area_size = Vector2(0.13714197, 0.11275661)

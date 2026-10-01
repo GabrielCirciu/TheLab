@@ -5,7 +5,7 @@ var baby_state : Emotion = Emotion.NONE
 var baby_number : int = 0
 var baby_ID : String = ""
 
-enum Buttons { BUTTON1, BUTTON2, BUTTON3, NONE }
+enum Buttons { BUTTON1, BUTTON2, BUTTON3, NEW_BABY, NONE }
 var interacted_button : Buttons = Buttons.NONE
 
 var wrong_count: int = 0

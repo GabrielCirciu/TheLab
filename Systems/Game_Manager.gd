@@ -25,6 +25,9 @@ func _process(_delta: float) -> void:
 			GameStats.ready_for_next_baby = false
 			_next_baby()
 		return
+	
+	if GameStats.ready_for_next_baby:
+		return
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
 		print("Correct!")
@@ -43,6 +46,17 @@ func _process(_delta: float) -> void:
 func _pick_new_emotion() -> void:
 	# NONE is the last enum value, so it's excluded from the roll
 	GameStats.baby_state = randi_range(0, GameStats.Emotion.NONE - 1) as GameStats.Emotion
+	var _feeling : String = ""
+	match GameStats.baby_state:
+		0:
+			_feeling = "happy"
+		1:
+			_feeling = "sad"
+		2:
+			_feeling = "angry"
+		_:
+			pass
+	GameStats.baby_feeling = "Baby is " + _feeling + "."
 	print("Baby is: ", GameStats.Emotion.keys()[GameStats.baby_state])
 	# Sound stuff would be set here
 

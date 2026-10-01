@@ -1,6 +1,8 @@
 class_name GameManager
 extends Node
 
+@export var babySFX:FmodEventEmitter3D
+
 # Which baby emotion each physical button answers
 var button_to_emotion := {
 	GameStats.Buttons.BUTTON1: GameStats.Emotion.HAPPY,
@@ -13,6 +15,7 @@ var pressed : GameStats.Buttons = GameStats.interacted_button
 
 func _ready() -> void:
 	_next_baby()
+	babySFX.play()
 
 func _process(_delta: float) -> void:
 	pressed = GameStats.interacted_button
@@ -43,6 +46,24 @@ func _process(_delta: float) -> void:
 func _pick_new_emotion() -> void:
 	# NONE is the last enum value, so it's excluded from the roll
 	GameStats.baby_state = randi_range(0, GameStats.Emotion.NONE - 1) as GameStats.Emotion
+	var _feeling : String = ""
+	
+	babySFX.stop()
+	babySFX.set_parameter("Parameter 2",GameStats.baby_state)
+	print("Parameter is: ",babySFX.get_parameter("Parameter 2"))
+	babySFX.play(true)
+	#babySFX.play(true)
+	match GameStats.baby_state:
+		0:
+			_feeling = "happy"
+			
+		1:
+			_feeling = "sad"
+		2:
+			_feeling = "angry"
+		_:
+			pass
+	GameStats.baby_feeling = "Baby is " + _feeling + "."
 	print("Baby is: ", GameStats.Emotion.keys()[GameStats.baby_state])
 	# Sound stuff would be set here
 

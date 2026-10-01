@@ -6,8 +6,8 @@ class_name AudioManager
 func one_shot(event_emitter_3d: FmodEventEmitter3D) -> void:
 	event_emitter_3d.play_one_shot()
 
-func play_loop(event_emitter_3d: FmodEventEmitter3D) -> void:
-	event_emitter_3d.play()
+static func play_loop(event_emitter_3d: FmodEventEmitter3D) -> void:
+	event_emitter_3d.play(false)
 
 func stop(event_emitter_3d: FmodEventEmitter3D) -> void:
 	event_emitter_3d.stop()

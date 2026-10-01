@@ -1239,16 +1239,24 @@ script = ExtResource("3_rajel")
 [node name="PlayerStats" type="Node" parent="." unique_id=1329297231]
 script = ExtResource("4_vvhu1")
 
-[node name="GameManager" type="Node" parent="." unique_id=1928044245]
+[node name="GameManager" type="Node" parent="." unique_id=1928044245 node_paths=PackedStringArray("babySFX")]
 script = ExtResource("1_8r6kd")
+babySFX = NodePath("../Environment/Baby/FmodEventEmitter3D")
 
 [node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("2_tfod6")]
 
 [node name="ComputerScreen" parent="." unique_id=1520417735 instance=ExtResource("5_tfod6")]
 transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 0.44236022, 1.4501117, -2.9048572)
 
-[node name="Player" parent="." unique_id=1250894719 instance=ExtResource("5_lbihj")]
+[node name="Player" parent="." unique_id=1250894719 node_paths=PackedStringArray("steps") instance=ExtResource("5_lbihj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+look_sensitivity = 0.005
+player_speed = 2.0
+steps = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Player" unique_id=27294197]
+event_name = "event:/Walking"
+event_guid = "{438ca093-f602-408e-b164-e277a7b9c0af}"
 
 [node name="Chair" type="Node3D" parent="." unique_id=963422290 node_paths=PackedStringArray("area", "seat_point", "exit_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7644264, 0.6688992, -2.910489)
@@ -1302,6 +1310,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Toy/scroll_btn_002/StaticBody3D" unique_id=934232928]
 shape = SubResource("SphereShape3D_vweq0")
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Toy" unique_id=1981088063]
+event_name = "event:/Button"
+event_guid = "{8ca4aa05-f608-4df3-985e-2d8aaf712449}"
+
 [node name="Button_Pacifier" type="Node3D" parent="." unique_id=1878537386 node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4566995, 1.4246124, -3.2347038)
 script = ExtResource("6_raj38")
@@ -1328,6 +1340,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Pacifier/scroll_btn_001/StaticBody3D" unique_id=2110819684]
 shape = SubResource("BoxShape3D_mlaul")
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Pacifier" unique_id=539465493]
+event_name = "event:/Button"
+event_guid = "{8ca4aa05-f608-4df3-985e-2d8aaf712449}"
+
 [node name="Button_Food" type="Node3D" parent="." unique_id=1854732470 node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46056032, 1.4157201, -3.3128471)
 script = ExtResource("6_raj38")
@@ -1353,6 +1369,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5923516e-06, 0.0012384951, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_Food/scroll_btn/StaticBody3D" unique_id=1429646278]
 shape = SubResource("BoxShape3D_7iho1")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_Food" unique_id=1761839399]
+event_name = "event:/Button"
+event_guid = "{8ca4aa05-f608-4df3-985e-2d8aaf712449}"
 
 [node name="Button_NewBaby" type="Node3D" parent="." unique_id=1192209680 node_paths=PackedStringArray("area")]
 transform = Transform3D(0.66611975, 0, -0.74584484, 0, 1, 0, 0.74584484, 0, 0.66611975, 6.7504954, 1.3924853, -2.0537047)
@@ -1391,6 +1411,10 @@ collision_layer = 256
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button_NewBaby/Area3D" unique_id=1371718355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00046920776, 0, 0.090186596)
 shape = SubResource("SphereShape3D_vvhu1")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Button_NewBaby" unique_id=20579044]
+event_name = "event:/Slide"
+event_guid = "{f87b244d-b263-4937-b64c-4c6070044e69}"
 
 [node name="Environment" type="Node3D" parent="." unique_id=1868812859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124107, 1.0089138, -3.0813434)
@@ -1529,6 +1553,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006855391, -1.8626451e-08,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Env_Computer/syringe_analyser/StaticBody3D" unique_id=576506399]
 shape = SubResource("BoxShape3D_1olqy")
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Environment/Env_Computer" unique_id=1571685049]
+event_name = "event:/ComputerWorkingSound"
+event_guid = "{455a2e2f-f7f9-4b6d-80bc-2e2b1b6719f4}"
+autoplay = true
+
 [node name="Lights" type="Node3D" parent="Environment" unique_id=911679089]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4676576, -1.0089138, 10.41735)
 
@@ -1612,3 +1641,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7076622, -1.0089138, -3.364
 
 [node name="env_locker3" parent="Environment" unique_id=276966922 instance=ExtResource("19_4eqlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.707662, -1.0089138, -3.364092)
+
+[node name="Baby" type="Node3D" parent="Environment" unique_id=1135124305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.123074, 0, 0)
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Environment/Baby" unique_id=1458000311]
+event_name = "event:/BabySFX"
+event_guid = "{a3080934-6440-47a4-bd25-098de5f83154}"
+fmod_parameters/BabyState/id = -3715272166167625451
+fmod_parameters/BabyState = 0
+fmod_parameters/BabyState/variant_type = 2

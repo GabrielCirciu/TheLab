@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq5bfuvuvirxi"
-path.s3tc="res://.godot/imported/Power_supply_Texture.png-c15322e231d5907dd3620e052e7dd75f.s3tc.ctex"
+uid="uid://bx548vio7lxoi"
+path.s3tc="res://.godot/imported/Chair_Texture.png-ce98cfdf5375f4aace65cb4306796604.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/Power_supply_Texture.png"
-dest_files=["res://.godot/imported/Power_supply_Texture.png-c15322e231d5907dd3620e052e7dd75f.s3tc.ctex"]
+source_file="res://World/Props/Chairs/Chair_Texture.png"
+dest_files=["res://.godot/imported/Chair_Texture.png-ce98cfdf5375f4aace65cb4306796604.s3tc.ctex"]
 
 [params]
 

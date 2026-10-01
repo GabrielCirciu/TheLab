@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b7gqix31cv310"
-path="res://.godot/imported/ENV_ Kras.fbx-3c16c761dde5db58b634a7e10ad9ee51.scn"
+uid="uid://frcf1oyhabl2"
+path="res://.godot/imported/Env_Room.fbx-b6fd7133c210fc483317800c57f106ca.scn"
 
 [deps]
 
-source_file="res://World/Environments/Lab/ENV_ Kras.fbx"
-dest_files=["res://.godot/imported/ENV_ Kras.fbx-3c16c761dde5db58b634a7e10ad9ee51.scn"]
+source_file="res://World/Environments/Room/Env_Room.fbx"
+dest_files=["res://.godot/imported/Env_Room.fbx-b6fd7133c210fc483317800c57f106ca.scn"]
 
 [params]
 

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bhcn0eyj5awrm"]
+
+[ext_resource type="PackedScene" uid="uid://816wmqrfkd8s" path="res://World/Props/Lamps/Ceiling Lamp/env_ceiling_lamp.fbx" id="1_nmhno"]
+
+[node name="env_ceiling_lamp" unique_id=216051645 instance=ExtResource("1_nmhno")]
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Cylinder" parent_id_path=PackedInt32Array(679007822) index="0" unique_id=1120609968]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.050032616, 0)
+light_color = Color(0.6730736, 0.49469543, 0.34862664, 1)
+light_energy = 0.474
+light_volumetric_fog_energy = 1.632
+shadow_enabled = true
+shadow_bias = 0.885
+shadow_normal_bias = 1.02
+shadow_opacity = 0.89
+shadow_blur = 0.0
+spot_range = 4.9194117
+spot_angle = 85.19753
+spot_angle_attenuation = 1.802499
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cylinder/SpotLight3D3" index="0" unique_id=125851175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12274361)
+light_color = Color(0.6745098, 0.49411765, 0.34901962, 1)
+light_energy = 3.526
+omni_range = 0.135

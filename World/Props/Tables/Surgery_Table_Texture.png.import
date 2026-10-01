@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oq3sfpqn05j6"
-path.s3tc="res://.godot/imported/ScrollBtnTexture.png-39e6ab91d1ec1ab83a436ff497724fac.s3tc.ctex"
+uid="uid://cctvidmuvfq4e"
+path.s3tc="res://.godot/imported/Surgery_Table_Texture.png-5926805be41bb5c21be239301ff90a7d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/ScrollBtnTexture.png"
-dest_files=["res://.godot/imported/ScrollBtnTexture.png-39e6ab91d1ec1ab83a436ff497724fac.s3tc.ctex"]
+source_file="res://World/Props/Tables/Surgery_Table_Texture.png"
+dest_files=["res://.godot/imported/Surgery_Table_Texture.png-5926805be41bb5c21be239301ff90a7d.s3tc.ctex"]
 
 [params]
 

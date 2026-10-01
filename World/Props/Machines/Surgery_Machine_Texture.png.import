@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fr7qoqpo7a2d"
-path.s3tc="res://.godot/imported/lab-ceiling-colour.jpg-0b6b0372ecd57f9f8f15cd09ab5b984e.s3tc.ctex"
+uid="uid://dx0xssdqbuoou"
+path.s3tc="res://.godot/imported/Surgery_Machine_Texture.png-d10a5eafddbfcc333a4a3070704af481.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/lab-ceiling-colour.jpg"
-dest_files=["res://.godot/imported/lab-ceiling-colour.jpg-0b6b0372ecd57f9f8f15cd09ab5b984e.s3tc.ctex"]
+source_file="res://World/Props/Machines/Surgery_Machine_Texture.png"
+dest_files=["res://.godot/imported/Surgery_Machine_Texture.png-d10a5eafddbfcc333a4a3070704af481.s3tc.ctex"]
 
 [params]
 

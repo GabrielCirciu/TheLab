@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm4ig0gcdc4sd"
-path.s3tc="res://.godot/imported/Pc_Props_Texture.png-41a0517b5bc39985c1bf2288c4da86c5.s3tc.ctex"
+uid="uid://dqcgh22nr18s0"
+path.s3tc="res://.godot/imported/ScrollBtnTexture.png-3e3c21bae7edab44818ebbf75b62cbb6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/Pc_Props_Texture.png"
-dest_files=["res://.godot/imported/Pc_Props_Texture.png-41a0517b5bc39985c1bf2288c4da86c5.s3tc.ctex"]
+source_file="res://World/Props/Electricals/ScrollBtnTexture.png"
+dest_files=["res://.godot/imported/ScrollBtnTexture.png-3e3c21bae7edab44818ebbf75b62cbb6.s3tc.ctex"]
 
 [params]
 

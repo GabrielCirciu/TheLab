@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hdsldhfty5u8"
-path.s3tc="res://.godot/imported/Computer.png-cf1bd11c450f466f05060a22fc2f294b.s3tc.ctex"
+uid="uid://ckryoryab5rok"
+path.s3tc="res://.godot/imported/Computer.png-208223a92b37a8d9578a90d0b1055730.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/Computer.png"
-dest_files=["res://.godot/imported/Computer.png-cf1bd11c450f466f05060a22fc2f294b.s3tc.ctex"]
+source_file="res://World/Props/Electricals/Computer.png"
+dest_files=["res://.godot/imported/Computer.png-208223a92b37a8d9578a90d0b1055730.s3tc.ctex"]
 
 [params]
 

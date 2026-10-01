@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmxnljpt5k2p1"
-path.s3tc="res://.godot/imported/KeyBaordTexture.png-e2706c9d54ba0f18216c24e29b9ef891.s3tc.ctex"
+uid="uid://dvl7j0ttn4hjf"
+path.s3tc="res://.godot/imported/Ceiling_Lamp_Texture.png-9142c10f480ba4237c45cceb9f149cc6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/KeyBaordTexture.png"
-dest_files=["res://.godot/imported/KeyBaordTexture.png-e2706c9d54ba0f18216c24e29b9ef891.s3tc.ctex"]
+source_file="res://World/Props/Lamps/Ceiling Lamp/Ceiling_Lamp_Texture.png"
+dest_files=["res://.godot/imported/Ceiling_Lamp_Texture.png-9142c10f480ba4237c45cceb9f149cc6.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://xvx3yha5ujc"]
+
+[ext_resource type="PackedScene" uid="uid://cjsk4brpv7ugm" path="res://World/Props/Tables/Env_Table_Surgical.fbx" id="1_2b4uk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2b4uk"]
+size = Vector3(1.0514646, 0.7804848, 2.580886)
+
+[node name="Env_Table_Surgical" unique_id=1613770615 instance=ExtResource("1_2b4uk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Surgical_Table" parent_id_path=PackedInt32Array(275581603) index="0" unique_id=1271693309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012731552, 0.3902424, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surgical_Table/StaticBody3D" index="0" unique_id=695736937]
+shape = SubResource("BoxShape3D_2b4uk")

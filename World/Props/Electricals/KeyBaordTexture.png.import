@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5u2r5mhil4nd"
-path.s3tc="res://.godot/imported/Surgery_Table_Texture.png-1eea35053632503386266e6b42d987b8.s3tc.ctex"
+uid="uid://c0w022qx5xjgy"
+path.s3tc="res://.godot/imported/KeyBaordTexture.png-64b2a42686ff476982921bd6ff72d498.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://World/Environments/Lab/Surgery_Table_Texture.png"
-dest_files=["res://.godot/imported/Surgery_Table_Texture.png-1eea35053632503386266e6b42d987b8.s3tc.ctex"]
+source_file="res://World/Props/Electricals/KeyBaordTexture.png"
+dest_files=["res://.godot/imported/KeyBaordTexture.png-64b2a42686ff476982921bd6ff72d498.s3tc.ctex"]
 
 [params]
 

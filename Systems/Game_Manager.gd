@@ -7,19 +7,21 @@ var button_to_emotion := {
 	GameStats.Buttons.BUTTON2: GameStats.Emotion.SAD,
 	GameStats.Buttons.BUTTON3: GameStats.Emotion.ANGRY,
 }
+
 var babyIdString : String = "BABY #"
+var pressed : GameStats.Buttons = GameStats.interacted_button
 
 func _ready() -> void:
 	_next_baby()
 
 func _process(_delta: float) -> void:
-	var pressed := GameStats.interacted_button
+	pressed = GameStats.interacted_button
 	GameStats.interacted_button = GameStats.Buttons.NONE
 	if pressed == GameStats.Buttons.NONE or GameStats.game_over:
 		return
 	
-	if GameStats.ready_for_next_baby:
-		if pressed == GameStats.Buttons.NEW_BABY: 
+	if pressed == GameStats.Buttons.NEW_BABY: 
+		if GameStats.ready_for_next_baby:
 			GameStats.ready_for_next_baby = false
 			_next_baby()
 		return
@@ -55,7 +57,6 @@ func _next_baby():
 
 func _increase_babyID() -> void:
 	GameStats.baby_number += 1 
-	print(GameStats.baby_ID)
 	GameStats.baby_ID = babyIdString+ "%04d" % GameStats.baby_number
 	
 

@@ -1,19 +1,26 @@
+class_name Player
 extends CharacterBody3D
 
 @export var ray: RayCast3D
 @export var look_sensitivity: float = 0.0005
+@export var player_speed: float = 5.0
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
-const SPEED = 5.0
-
 var current_interactable: Interactable
-var sitting = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	ray.add_exception(self)
+
+func _find_interactable(node: Node) -> Interactable:
+	# Walks up from the hit collider until it finds the Interactable that owns it
+	while node:
+		if node is Interactable:
+			return node
+		node = node.get_parent()
+	return null
 
 func _check_for_interactable() -> void:
 	# Shoots a raycast, expected at every physics step, checking for collision
@@ -21,7 +28,7 @@ func _check_for_interactable() -> void:
 	# and it saves what is being interacted with in the PlayerStats script
 	var _ray_target: Interactable = null
 	if ray.is_colliding():
-		_ray_target = ray.get_collider() as Interactable
+		_ray_target = _find_interactable(ray.get_collider() as Node)
 		
 	if _ray_target != PlayerStats.current_interactable:
 		if is_instance_valid(PlayerStats.current_interactable):
@@ -29,21 +36,29 @@ func _check_for_interactable() -> void:
 		PlayerStats.current_interactable = _ray_target
 		if _ray_target:
 			_ray_target.focus()
+
+func teleport_to(pos: Vector3, yaw: float = NAN) -> void:
+	global_position = pos
+	velocity = Vector3.ZERO
+	if not is_nan(yaw): # Necessary fix otherwise standing up will fuck us up
+		head.global_rotation.y = yaw
+		camera.rotation.x = 0.0
 		
 func _movement_input() -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * player_speed
+		velocity.z = direction.z * player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, player_speed)
+		velocity.z = move_toward(velocity.z, 0, player_speed)
 
 func _physics_process(_delta: float) -> void:
 	_movement_input()
-	move_and_slide()
 	_check_for_interactable()
+	if !PlayerStats.is_sitting:
+		move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -52,7 +67,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 	
 	if Input.is_action_just_pressed("escape"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if PlayerStats.is_sitting:
+			PlayerStats.current_chair.stand(self)
+			get_viewport().set_input_as_handled()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if event is InputEventMouseButton and event.pressed:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -61,8 +80,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		var _ray_cast_target : Interactable = PlayerStats.current_interactable
 		if is_instance_valid(_ray_cast_target):
 			_ray_cast_target.interact(self)
-
-func sit(pos: Vector3) -> void:
-	sitting = true
-	global_position = pos
-	

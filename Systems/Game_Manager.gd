@@ -7,6 +7,7 @@ var button_to_emotion := {
 	GameStats.Buttons.BUTTON2: GameStats.Emotion.SAD,
 	GameStats.Buttons.BUTTON3: GameStats.Emotion.ANGRY,
 }
+var babyIdString : String = "BABY #"
 
 func _ready() -> void:
 	_next_baby()
@@ -42,8 +43,15 @@ func _next_baby():
 	GameStats.correct_count = 0
 	GameStats.wrong_count = 0
 	GameStats.answers_max += 2
+	_increase_babyID()
 	_pick_new_emotion()
 	# Potential game difficulty increase would be set here
+
+func _increase_babyID() -> void:
+	GameStats.baby_number += 1 
+	print(GameStats.baby_ID)
+	GameStats.baby_ID = babyIdString+ "%04d" % GameStats.baby_number
+	
 
 func _game_over() -> void:
 	print("You lose!")

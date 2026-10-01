@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bp60ytwrm06wj"]
+
+[ext_resource type="PackedScene" uid="uid://bhcn0eyj5awrm" path="res://World/Props/Lamps/Ceiling Lamp/env_ceiling_lamp.tscn" id="1_46fqt"]
+
+[node name="env_ceiling_red_lamp" unique_id=216051645 instance=ExtResource("1_46fqt")]
+
+[node name="SpotLight3D3" parent="Cylinder" parent_id_path=PackedInt32Array(679007822) index="0" unique_id=1120609968]
+light_color = Color(0.69793785, 0.20509148, 0.19498295, 1)
+spot_angle = 44.82
+
+[node name="OmniLight3D" parent="Cylinder/SpotLight3D3" index="0" unique_id=125851175]
+light_color = Color(0.69803923, 0.20392157, 0.19607843, 1)

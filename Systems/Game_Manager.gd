@@ -1,7 +1,8 @@
 class_name GameManager
 extends Node
 
-@export var babySFX:FmodEventEmitter3D
+@export var babySFX: FmodEventEmitter3D
+@export var next_baby_timer: float =  1.0
 
 # Which baby emotion each physical button answers
 var button_to_emotion := {
@@ -13,9 +14,14 @@ var button_to_emotion := {
 var babyIdString : String = "BABY #"
 var pressed : GameStats.Buttons = GameStats.interacted_button
 
+var _clear_timer : Timer
+
 func _ready() -> void:
-	_next_baby()
-	babySFX.play()
+	_clear_timer = Timer.new()
+	_clear_timer.one_shot = true
+	_clear_timer.timeout.connect(_next_baby)
+	add_child(_clear_timer)
+	_clear_timer.start(next_baby_timer)
 
 func _process(_delta: float) -> void:
 	pressed = GameStats.interacted_button
@@ -26,7 +32,8 @@ func _process(_delta: float) -> void:
 	if pressed == GameStats.Buttons.NEW_BABY: 
 		if GameStats.ready_for_next_baby:
 			GameStats.ready_for_next_baby = false
-			_next_baby()
+			babySFX.stop()
+			_clear_timer.start(next_baby_timer)
 		return
 	
 	if GameStats.ready_for_next_baby:
@@ -52,10 +59,10 @@ func _pick_new_emotion() -> void:
 	var _feeling : String = ""
 	
 	babySFX.stop()
-	babySFX.set_parameter("Parameter 2",GameStats.baby_state)
-	print("Parameter is: ",babySFX.get_parameter("Parameter 2"))
+	babySFX.set_parameter("BabyState", GameStats.baby_state)
+	print("Parameter is: ",babySFX.get_parameter("BabyState"))
 	babySFX.play(true)
-	#babySFX.play(true)
+	
 	match GameStats.baby_state:
 		0:
 			_feeling = "happy"

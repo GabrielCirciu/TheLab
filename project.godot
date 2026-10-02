@@ -17,6 +17,8 @@ General/banks_path="res://Audio/FMODBanks/Desktop"
 config/name="The LaB"
 run/main_scene="uid://dsmxw3r30htsq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://c23mfw4ihpyex"
 config/icon="res://icon.svg"
 
 [autoload]

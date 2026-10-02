@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3p116k3mf1lp"
-path="res://.godot/imported/ColorTest.png-27521bda0e5276670db1bf12379e4544.ctex"
+uid="uid://dafbrpvpn6x5t"
+path="res://.godot/imported/Colony.png-e27d261a1dc59adb79b17f1366c25a25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Props/Electricals/ColorTest.png"
-dest_files=["res://.godot/imported/ColorTest.png-27521bda0e5276670db1bf12379e4544.ctex"]
+source_file="res://World/Props/Electricals/Computer/Colony.png"
+dest_files=["res://.godot/imported/Colony.png-e27d261a1dc59adb79b17f1366c25a25.ctex"]
 
 [params]
 

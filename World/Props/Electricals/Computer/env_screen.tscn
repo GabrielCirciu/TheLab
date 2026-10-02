@@ -5,19 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://c27xix4yla2p2" path="res://UI/Screen/Bg.jpg" id="3_72xl4"]
 [ext_resource type="Shader" uid="uid://cilu8q1ppqotc" path="res://World/Props/Electricals/Computer/env_screen.gdshader" id="4_72xl4"]
 [ext_resource type="FontFile" uid="uid://sdtsanxfgqys" path="res://UI/Fonts/Perfect DOS VGA 437.ttf" id="4_dbfr3"]
-[ext_resource type="Texture2D" uid="uid://b3p116k3mf1lp" path="res://World/Props/Electricals/ColorTest.png" id="4_vv3lc"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_vv3lc"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="Texture2D" uid="uid://dafbrpvpn6x5t" path="res://World/Props/Electricals/Computer/Colony.png" id="4_vv3lc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yefe0"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yefe0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j73bs"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbkat"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_vv3lc")
+albedo_texture = SubResource("ViewportTexture_yefe0")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_yefe0")
+emission_texture = SubResource("ViewportTexture_j73bs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xrps"]
 resource_name = "Screen"
@@ -42,7 +42,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_j73bs"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_c18cs"]
 resource_local_to_scene = true
 resource_name = "Cube_046"
 _surfaces = [{
@@ -93,9 +93,9 @@ shader_parameter/vignette_opacity = 0.6010000285475
 script = ExtResource("2_meyn4")
 
 [node name="Computer_001" parent="." index="0" unique_id=2083030734]
-material_override = SubResource("StandardMaterial3D_yefe0")
+material_override = SubResource("StandardMaterial3D_kbkat")
 cast_shadow = 0
-mesh = SubResource("ArrayMesh_j73bs")
+mesh = SubResource("ArrayMesh_c18cs")
 
 [node name="Area3D" type="Area3D" parent="Computer_001" index="0" unique_id=1151972204]
 transform = Transform3D(0.99999994, 1.8464126e-15, 0, 1.8464128e-15, 0.99999994, 8.881784e-16, 0, 0, 1, 0, 0, 0)
@@ -156,16 +156,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -174.0
-offset_right = 514.99994
-offset_bottom = 338.0
+offset_left = 13.0
+offset_top = -180.0
+offset_right = 422.59763
+offset_bottom = 228.2641
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.44000062, 0.44000062)
 texture = ExtResource("4_vv3lc")
-expand_mode = 1
-stretch_mode = 3
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="SubViewport/Control/TabContainer/Conony Status" index="1" unique_id=924423653]
 layout_mode = 0
@@ -220,7 +219,8 @@ z_index = 1
 material = SubResource("ShaderMaterial_j4o88")
 custom_minimum_size = Vector2(512, 512)
 custom_maximum_size = Vector2(512, 512)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

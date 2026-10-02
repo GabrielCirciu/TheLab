@@ -1242,6 +1242,7 @@ script = ExtResource("4_vvhu1")
 [node name="GameManager" type="Node" parent="." unique_id=1928044245 node_paths=PackedStringArray("babySFX")]
 script = ExtResource("1_8r6kd")
 babySFX = NodePath("../Environment/Baby/FmodEventEmitter3D")
+next_baby_timer = 1.5
 
 [node name="AudioManager" parent="." unique_id=1869149764 instance=ExtResource("2_tfod6")]
 

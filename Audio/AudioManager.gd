@@ -7,7 +7,7 @@ static func one_shot(event_emitter_3d: FmodEventEmitter3D) -> void:
 	event_emitter_3d.play_one_shot()
 
 static func play_loop(event_emitter_3d: FmodEventEmitter3D) -> void:
-	event_emitter_3d.play()
+	event_emitter_3d.play(false)
 
 static func stop(event_emitter_3d: FmodEventEmitter3D) -> void:
 	event_emitter_3d.stop()

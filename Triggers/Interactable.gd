@@ -4,14 +4,14 @@ extends Node3D
 signal interacted(interactor: Node)
 
 enum Kind { GENERIC, BUTTON, DOOR, CHAIR }
+var is_open := false # only used by doors
 
 @export_group("General")
 @export var kind: Kind = Kind.GENERIC
 @export var prompt_text := "<NO PROMPT SET>"
 @export var anim: AnimationPlayer = null
 @export var area: Area3D
-	
-var is_open := false # only used by doors
+@export var sound_emitter: FmodEventEmitter3D
 
 @export_group("Chair")
 @export var seat_point: Marker3D
@@ -45,6 +45,8 @@ func unfocus() -> void:
 	InteractionPrompt.instance.hide_prompt()
 
 func interact(interactor: Node) -> void:
+	if sound_emitter != null:
+		AudioManager.one_shot(sound_emitter)
 	interacted.emit(interactor)
 	match kind:
 		Kind.BUTTON:

@@ -1284,12 +1284,13 @@ shape = SubResource("BoxShape3D_03mnb")
 [node name="Env_Stool" parent="Chair" unique_id=697425343 instance=ExtResource("7_8e0uq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058683753, -0.64646167, -0.0096457)
 
-[node name="Button_Toy" type="Node3D" parent="." unique_id=538063524 node_paths=PackedStringArray("area")]
+[node name="Button_Toy" type="Node3D" parent="." unique_id=538063524 node_paths=PackedStringArray("area", "sound_emitter")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4634804, 1.4173853, -3.1474643)
 script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Toy"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 0
 
 [node name="Area3D" type="Area3D" parent="Button_Toy" unique_id=1308932065]
@@ -1320,6 +1321,7 @@ script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Pacifier"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 1
 
 [node name="Area3D" type="Area3D" parent="Button_Pacifier" unique_id=1689080769]
@@ -1350,6 +1352,7 @@ script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Food"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 2
 
 [node name="Area3D" type="Area3D" parent="Button_Food" unique_id=459841387]
@@ -1380,6 +1383,7 @@ script = ExtResource("6_raj38")
 kind = 1
 prompt_text = "Get new baby"
 area = NodePath("Area3D")
+sound_emitter = NodePath("FmodEventEmitter3D")
 button = 3
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="Button_NewBaby" unique_id=1789262984]

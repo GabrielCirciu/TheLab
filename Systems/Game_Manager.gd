@@ -28,6 +28,9 @@ func _process(_delta: float) -> void:
 			GameStats.ready_for_next_baby = false
 			_next_baby()
 		return
+	
+	if GameStats.ready_for_next_baby:
+		return
 
 	if button_to_emotion[pressed] == GameStats.baby_state:
 		print("Correct!")

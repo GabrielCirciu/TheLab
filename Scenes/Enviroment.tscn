@@ -102,8 +102,9 @@ area_attenuation = 1.658
 area_size = Vector2(0.0011677742, 0.7760067)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Lights" unique_id=1946787408]
-transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -6.0585465, 1.4684366, -10.218113)
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -6.0564847, 1.4684366, -10.218113)
 light_color = Color(0.52248555, 0.68479013, 0.3408077, 1)
+light_energy = 0.41
 shadow_bias = 0.0
 area_range = 0.241
 area_attenuation = 0.798
